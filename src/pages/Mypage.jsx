@@ -24,17 +24,6 @@ function Mypage() {
                     </NickNameTextContainer>
                 </ImpomationContainer>
                 <MypageTitleContainer>
-                    <TitleLayout>내가 남긴 메세지</TitleLayout>
-                </MypageTitleContainer>
-                <ImpomationContainer>
-                    <CommentListContainer>
-                        <CommentCard />
-                        <CommentCard />
-                        <CommentCard />
-                        <CommentCard />
-                    </CommentListContainer>
-                </ImpomationContainer>
-                <MypageTitleContainer>
                     <TitleLayout>나의 찜 목록</TitleLayout>
                 </MypageTitleContainer>
                 <ImpomationContainer>
@@ -46,6 +35,17 @@ function Mypage() {
                         <Card />
                         <Card />
                     </CardListContainer>
+                </ImpomationContainer>
+                <MypageTitleContainer>
+                    <TitleLayout>내가 남긴 메세지</TitleLayout>
+                </MypageTitleContainer>
+                <ImpomationContainer>
+                    <CommentListContainer>
+                        <CommentCard />
+                        <CommentCard />
+                        <CommentCard />
+                        <CommentCard />
+                    </CommentListContainer>
                 </ImpomationContainer>
             </MypageContainer>
         </MainLayout>

@@ -6,15 +6,6 @@ const CommentList = () => {
   return (
     <CommentListContainer>
       <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
-      <CommentCard />
     </CommentListContainer>
   );
 };

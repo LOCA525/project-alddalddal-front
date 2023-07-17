@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from 'styled-components';
 import { MainLayout } from '../styles/layouts';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,32 @@ import { useNavigate } from 'react-router-dom';
 function Joinpage() {
 
     const navigate = useNavigate();
+    
+    const [joinInputs, setJoinInputs] = useState({
+        nickName: "",
+        email: "",
+        password: ""
+    });
+
+    const { nickName, email, password} = joinInputs;
+
+    const onChangeHandler = (event) => {
+        const {value, name} = event.target;
+        setJoinInputs({
+            ...joinInputs,
+            [name]: value
+        })
+    };
+
+    const onJoinBtnHandler = () => {
+        // setJoinInputs({
+        //     nickName,
+        //     email,
+        //     password
+        // })
+        console.log(joinInputs);
+        // navigate("/login")
+    };
 
     return (
         <MainLayout style={{backgroundColor: '#f7f7f7'}}>
@@ -15,18 +41,35 @@ function Joinpage() {
                 </JoinHeaderContainer>
                 <JoinContentWrapper>
                     <InputTitleContainer>🔸 닉네임</InputTitleContainer>
-                    <EmailInput placeholder='당신의 새로운 닉네임을 입력해주세요.'></EmailInput>
+                    <EmailInput
+                        type='text'
+                        value={nickName}
+                        name='nickName'
+                        placeholder='당신의 새로운 닉네임을 입력해주세요.'
+                        onChange={onChangeHandler}
+                    ></EmailInput>
                     <InputTitleContainer>🔸 이메일</InputTitleContainer>
-                    <EmailInput placeholder='당신의 새로운 이메일을 입력해주세요.'></EmailInput>
+                    <EmailInput
+                        type='text'
+                        value={email}
+                        name='email'
+                        placeholder='당신의 새로운 이메일을 입력해주세요.'
+                        onChange={onChangeHandler}
+                    ></EmailInput>
                     <InputTitleContainer>🔸 비밀번호</InputTitleContainer>
-                    <EmailInput placeholder='당신의 새로운 비밀번호를 입력해주세요.'></EmailInput>
+                    <EmailInput
+                        type='text'
+                        value={password}
+                        name='password'
+                        placeholder='당신의 새로운 비밀번호를 입력해주세요.'
+                        onChange={onChangeHandler}
+                    ></EmailInput>
                     <JoinBtnWrapper>
-                        <LoginLinkBtn
-                            onClick={() => {
-                                navigate("/login");
-                            }}
+                        <LoginLinkBtn onClick={() =>{
+                            navigate("/login")
+                        }}
                         >로그인하러 가기</LoginLinkBtn>
-                        <JoinBtn>가입 완료</JoinBtn>
+                        <JoinBtn onClick={onJoinBtnHandler}>가입 완료</JoinBtn>
                     </JoinBtnWrapper>
                 </JoinContentWrapper>
             </JoinContainer>

@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from 'styled-components';
 import { MainLayout } from '../styles/layouts';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { loginBtn } from '../redux/modules/ProjectADD';
 
 function Loginpage() {
+
+    const navigate = useNavigate();
+    // const dispatch = useDispatch();
+
+    const [loginInputs, setLoginInputs] = useState({
+        email: "",
+        password: "",
+    });
+
+    const { email, password} = loginInputs;
+
+    const onChange = (event) => {
+        const {value, name} = event.target;
+        setLoginInputs({
+            ...loginInputs,
+            [name]: value
+        })
+    }
+
+    const onLoginBtnHandler = () => {
+        // dispatch(loginBtn(true));
+        // setLoginInputs({
+        //     email,
+        //     password
+        // })
+        console.log(loginInputs);
+        // navigate("/")
+    };
+
     return (
         <MainLayout style={{backgroundColor: '#f7f7f7'}}>
             <LoginContainer>
@@ -11,10 +42,24 @@ function Loginpage() {
                     로그인
                 </LoginHeaderContainer>
                 <LoginContentContainer>
-                    <EmailInput placeholder='이메일을 입력해주세요.'></EmailInput>
-                    <EmailInput placeholder='비밀번호를 입력해주세요.'></EmailInput>
-                    <LoginBtn>로그인</LoginBtn>
-                    <h4>혹시 회원이 아니시라면?</h4>
+                    <EmailInput
+                        type="text"
+                        value={email}
+                        name="email"
+                        placeholder='이메일을 입력해주세요.'
+                        onChange={onChange}
+                    ></EmailInput>
+                    <EmailInput
+                        type="text"
+                        value={password}
+                        name="password"
+                        placeholder='비밀번호를 입력해주세요.'
+                        onChange={onChange}
+                    ></EmailInput>
+                    <LoginBtn
+                        onClick={onLoginBtnHandler}
+                    >로그인</LoginBtn>
+                    <h4>혹시 회원이 아니라면?</h4>
                     <Link to="/join">회원가입</Link>
                 </LoginContentContainer>
             </LoginContainer>

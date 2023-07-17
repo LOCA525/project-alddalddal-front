@@ -2,14 +2,21 @@ import React from "react";
 import { styled } from "styled-components";
 
 const CommentCard = () => {
+
   return (
     <CommentCardContainer>
-      <UserContainer>
-        <div>유저 닉네임</div>
-      </UserContainer>
-      <ContentContainer>
-        <div>게시글 내용은 일단 @!#!@$!@$#@!#!@#!@#!@#!@#$#@$!#$!@#$@$!@#$!입니다</div>
-      </ContentContainer>
+      <UserContainer>유저 닉네임</UserContainer>
+      <ContentContainer>asdfadsfadsf</ContentContainer>
+      <UserContainer>유저 닉네임</UserContainer>
+      <ContentContainer>asdfadsfadsf</ContentContainer>
+      <UserContainer>유저 닉네임</UserContainer>
+      <ContentContainer>asdfadsfadsf</ContentContainer>
+      <UserContainer>유저 닉네임</UserContainer>
+      <ContentContainer>asdfadsfadsf</ContentContainer>
+      <UserContainer>유저 닉네임</UserContainer>
+      <ContentContainer>asdfadsfadsf</ContentContainer>
+      <UserContainer>유저 닉네임</UserContainer>
+      <ContentContainer>asdfadsfadsf</ContentContainer>
     </CommentCardContainer>
   );
 };
