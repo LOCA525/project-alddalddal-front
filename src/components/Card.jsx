@@ -23,6 +23,9 @@ const CardContainer = styled.div`
   width: 300px;
   height: 290px;
   cursor: pointer;
+  /* &:hover {
+    height: 291px;
+  } */
 `;
 
 const CardImageContainer = styled.div`
