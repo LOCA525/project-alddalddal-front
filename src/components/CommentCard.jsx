@@ -8,7 +8,7 @@ const CommentCard = () => {
         <div>유저 닉네임</div>
       </UserContainer>
       <ContentContainer>
-        <div>게시글 내용은 일단 @!#!@$!@$#@!#!@#!@#!@#!@#$#@$!#$!@#$@$!@#$!입니다!</div>
+        <div>게시글 내용은 일단 @!#!@$!@$#@!#!@#!@#!@#!@#$#@$!#$!@#$@$!@#$!입니다</div>
       </ContentContainer>
     </CommentCardContainer>
   );
