@@ -9,6 +9,7 @@ import LoungePage from "./pages/Loungepage";
 import Mypage from "./pages/Mypage";
 import Loginpage from "./pages/Loginpage";
 import Joinpage from "./pages/Joinpage";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
 
 function App() {
   return (
@@ -16,12 +17,33 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/join" element={<div><Joinpage /></div>} />
-          <Route path="/login" element={<div><Loginpage /></div>} />
-          <Route path="/mypage" element={<div><Mypage /></div>} />
+          <Route
+            path="/join"
+            element={
+              <div>
+                <Joinpage />
+              </div>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <div>
+                <Loginpage />
+              </div>
+            }
+          />
+          <Route
+            path="/mypage"
+            element={
+              <div>
+                <Mypage />
+              </div>
+            }
+          />
           <Route path="/" element={<MainPage />} />
           <Route path="/recipe" element={<RecipeListPage />} />
-          <Route path="/recipe/detail" element={<div>칵테일레시피상세페이지</div>} />
+          <Route path="/recipe/detail" element={<RecipeDetailPage />} />
           <Route path="/lounge" element={<LoungePage />} />
         </Routes>
       </BrowserRouter>
