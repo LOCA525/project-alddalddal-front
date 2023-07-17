@@ -1,20 +1,29 @@
 import React from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import logo from "../images/알딸딸로고.png"
 
 const NavBar = () => {
   const navigate = useNavigate();
   return (
     <div>
       <NavBarContainer>
-        <LogoContainer
+        <LogoContainer         
           onClick={() => {
             navigate("/");
           }}
         >
+          <img src={logo} alt="ERROR" width={"130%"} />
           로고
         </LogoContainer>
         <BtnContainer>
+          <NavBtnContainer
+            onClick={() => {
+              navigate("/mypage")
+            }}
+          >
+            마이페이지
+          </NavBtnContainer>
           <NavBtnContainer
             onClick={() => {
               navigate("/recipe");
@@ -56,7 +65,7 @@ const NavBarContainer = styled.div`
 const LogoContainer = styled.div`
   width: 130px;
   height: 40px;
-  background-color: #f79327;
+  /* background-color: #f79327; */
   color: #fff;
   border-radius: 10px;
   display: flex;
@@ -64,7 +73,10 @@ const LogoContainer = styled.div`
   font-weight: 900;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+    width: 135px;
+  };
 `;
 
 const BtnContainer = styled.div`
