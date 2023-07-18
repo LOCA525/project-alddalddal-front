@@ -17,30 +17,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route
-            path="/join"
-            element={
-              <div>
-                <Joinpage />
-              </div>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <div>
-                <Loginpage />
-              </div>
-            }
-          />
-          <Route
-            path="/mypage"
-            element={
-              <div>
-                <Mypage />
-              </div>
-            }
-          />
+          <Route path="users/signup" element={<Joinpage />} />
+          <Route path="/login" element={<Loginpage />} />
+          <Route path="/mypage" element={<Mypage />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/recipe" element={<RecipeListPage />} />
           <Route path="/recipe/detail" element={<RecipeDetailPage />} />
