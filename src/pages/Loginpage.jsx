@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { MainLayout } from "../styles/layouts";
 import { Link, useNavigate } from "react-router-dom";
 import { postLoginApi, postSignUpApi } from "../api/users";
+import axios from "axios";
 // import { useDispatch } from 'react-redux';
 // import { loginBtn } from '../redux/modules/ProjectADD';
 
@@ -25,12 +26,13 @@ function Loginpage() {
     });
   };
 
+  // 로그인 버튼클릭시 토큰 발급후 세션스토리지 저장
   const onLoginBtnHandler = async () => {
     console.log(loginInputs);
     try {
-      const res = await postLoginApi(loginInputs);
-      if (res.status === 200) {
-        console.log("res", res);
+      const response = await postLoginApi(loginInputs);
+      if (response.status === 200) {
+        console.log("res", response);
       }
     } catch (err) {
       console.log(err);

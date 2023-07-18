@@ -3,18 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { postSignUpApi } from "../api/users";
 
-const Card = () => {
+const Card = ({ item }) => {
   const navigate = useNavigate();
   return (
     <CardContainer
       onClick={() => {
-        navigate("/recipe/detail");
+        navigate(`/recipe/detail/${item.recipeId}`);
       }}
     >
       <CardImageContainer></CardImageContainer>
       <CardContentContainer>
-        <TitleContainer>버진 피나콜라다</TitleContainer>
-        <ContentContainer>피나 콜라다의 무알콜 버전입니다.</ContentContainer>
+        <TitleContainer>{item?.name}</TitleContainer>
+        <ContentContainer>{item?.explanation}</ContentContainer>
       </CardContentContainer>
     </CardContainer>
   );
@@ -32,8 +32,8 @@ const CardContainer = styled.div`
 const CardImageContainer = styled.div`
   width: 100%;
   height: 230px;
-  background-color: red;
   border-radius: 20px;
+  border: 1px solid gray;
 `;
 
 const CardContentContainer = styled.div`

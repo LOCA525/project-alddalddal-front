@@ -1,16 +1,37 @@
+import axios from "axios";
 import instance from ".";
 
+// 회원가입
 export const postSignUpApi = async (body) => {
   const res = await instance.post("/users/signup", body);
+  console.log(res);
   return res;
 };
-
+// 로그인
 export const postLoginApi = async (body) => {
   const res = await instance.post("/users/login", body);
+  console.log(res);
   return res;
 };
-
+// 마이페이지 조회
+export const getMyPage = async () => {
+  const res = await instance.get("/mypage");
+  console.log(res);
+  return res;
+};
+// 메인페이지 조회
 export const getMainApi = async () => {
   const res = await instance.get("/main");
+  console.log(res);
+  return res;
+};
+// 칵테일레시피페이지 조회
+export const getRecipePageApi = async () => {
+  const res = await instance.get("/recipes");
+  return res;
+};
+// 레시피상세페이지 조회
+export const getRecipeDetailPageApi = async (id) => {
+  const res = await instance.get(`recipes/${id}`);
   return res;
 };

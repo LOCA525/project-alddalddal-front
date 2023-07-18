@@ -1,67 +1,67 @@
-import React from 'react'
-import { MainLayout, TitleLayout } from '../styles/layouts'
-import { styled } from 'styled-components';
-import CommentCard from '../components/CommentCard';
-import Card from '../components/Card';
-import ModifyBtn from '../components/ModifyBtn';
+import React, { useEffect } from "react";
+import { MainLayout, TitleLayout } from "../styles/layouts";
+import { styled } from "styled-components";
+import CommentCard from "../components/CommentCard";
+import Card from "../components/Card";
+import ModifyBtn from "../components/ModifyBtn";
+import { getMainApi, getMyPage } from "../api/users";
+import { useQuery } from "react-query";
 
 function Mypage() {
-
-    return (
-        <MainLayout>
-            <MypageContainer>
-                <MypageTitleContainer>
-                    <TitleLayout>내 정보</TitleLayout>
-                </MypageTitleContainer>
-                <ImpomationContainer>
-                    <MyprofilContainer>
-                        My 프로필
-                    </MyprofilContainer>
-                    <EmailTextContainer>
-                        <h4>📧 *******@*****.***</h4>
-                    </EmailTextContainer>
-                    <NickNameTextContainer>
-                        <h4>🙍‍♂️🙍 닉네임</h4>
-                        <ModifyBtn />
-                    </NickNameTextContainer>
-                </ImpomationContainer>
-                <MypageTitleContainer>
-                    <TitleLayout>나의 찜 목록</TitleLayout>
-                </MypageTitleContainer>
-                <ImpomationContainer>
-                    <CardListContainer>
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                    </CardListContainer>
-                </ImpomationContainer>
-                <MypageTitleContainer>
-                    <TitleLayout>내가 남긴 메세지</TitleLayout>
-                </MypageTitleContainer>
-                <ImpomationContainer>
-                    <CommentListContainer>
-                        <CommentCard />
-                        <CommentCard />
-                        <CommentCard />
-                        <CommentCard />
-                    </CommentListContainer>
-                </ImpomationContainer>
-            </MypageContainer>
-        </MainLayout>
-    )
+  const { isLoading, error, data } = useQuery("myPageData", getMyPage);
+  return (
+    <MainLayout>
+      <MypageContainer>
+        <MypageTitleContainer>
+          <TitleLayout>내 정보</TitleLayout>
+        </MypageTitleContainer>
+        <ImpomationContainer>
+          <MyprofilContainer>My 프로필</MyprofilContainer>
+          <EmailTextContainer>
+            <h4>📧 *******@*****.***</h4>
+          </EmailTextContainer>
+          <NickNameTextContainer>
+            <h4>🙍‍♂️🙍 닉네임</h4>
+            <ModifyBtn />
+          </NickNameTextContainer>
+        </ImpomationContainer>
+        <MypageTitleContainer>
+          <TitleLayout>나의 찜 목록</TitleLayout>
+        </MypageTitleContainer>
+        <ImpomationContainer>
+          <CardListContainer>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </CardListContainer>
+        </ImpomationContainer>
+        <MypageTitleContainer>
+          <TitleLayout>내가 남긴 메세지</TitleLayout>
+        </MypageTitleContainer>
+        <ImpomationContainer>
+          <CommentListContainer>
+            <CommentCard />
+            <CommentCard />
+            <CommentCard />
+            <CommentCard />
+          </CommentListContainer>
+        </ImpomationContainer>
+      </MypageContainer>
+    </MainLayout>
+  );
 }
 
 const MypageContainer = styled.div`
-    display: flex;
-    display: grid;
-    margin-top: 20px;
+  display: flex;
+  display: grid;
+  margin-top: 20px;
 `;
 
 const MypageTitleContainer = styled.div`
-    display: flex;
+  display: flex;
   width: 1000px;
   margin: 80px auto 0px auto;
 `;
@@ -79,36 +79,36 @@ const ImpomationContainer = styled.div`
 `;
 
 const MyprofilContainer = styled.div`
-    width: 1000px;
-    height: 60px;
-    border-top-left-radius: 8px; 
-    border-top-right-radius: 8px; 
-    background-color: #f79327;
-    align-items: center;
-    display: flex;
-    padding: 0px 16px;
-    color: white;
-    font-family: "GoryeongStrawberry";
-    font-size: 20px;
+  width: 1000px;
+  height: 60px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #f79327;
+  align-items: center;
+  display: flex;
+  padding: 0px 16px;
+  color: white;
+  font-family: "GoryeongStrawberry";
+  font-size: 20px;
 `;
 
 const EmailTextContainer = styled.div`
-    width: 960px;
-    height: 60px;
-    margin: 0px auto;
-    border-bottom: 1px solid rgba(194, 194, 194, 0.45);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 960px;
+  height: 60px;
+  margin: 0px auto;
+  border-bottom: 1px solid rgba(194, 194, 194, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const NickNameTextContainer = styled.div`
-    width: 960px;
-    height: 60px;
-    margin: 0px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 960px;
+  height: 60px;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const CommentListContainer = styled.div`
@@ -133,4 +133,4 @@ const CardListContainer = styled.div`
   overflow-y: scroll;
 `;
 
-export default Mypage
+export default Mypage;
