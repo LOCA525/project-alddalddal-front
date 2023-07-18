@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import { MainLayout, TitleLayout } from "../styles/layouts";
 import { styled } from "styled-components";
 import Card from "../components/Card";
 import CardList from "../components/CardList";
 import CommentList from "../components/CommentList";
+import { getMainApi } from "../api/users";
 const MainPage = () => {
   return (
     // Hot 레시피카드는 6개까지만 띄울것 !

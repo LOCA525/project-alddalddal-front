@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import { MainLayout } from "../styles/layouts";
 import { Link, useNavigate } from "react-router-dom";
-import { postSignUpApi } from "../api/users";
+import { postLoginApi, postSignUpApi } from "../api/users";
 // import { useDispatch } from 'react-redux';
 // import { loginBtn } from '../redux/modules/ProjectADD';
 
@@ -26,23 +26,15 @@ function Loginpage() {
   };
 
   const onLoginBtnHandler = async () => {
-    // dispatch(loginBtn(true));
-    // setLoginInputs({
-    //     email,
-    //     password
-    // })
-
     console.log(loginInputs);
     try {
-      const res = await postSignUpApi(loginInputs);
+      const res = await postLoginApi(loginInputs);
       if (res.status === 200) {
         console.log("res", res);
       }
     } catch (err) {
       console.log(err);
     }
-
-    // navigate("/")
   };
 
   return (

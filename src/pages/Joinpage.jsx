@@ -24,11 +24,6 @@ function Joinpage() {
   };
 
   const onJoinBtnHandler = async () => {
-    // setJoinInputs({
-    //     nickName,
-    //     email,
-    //     password
-    // })
     try {
       const res = await postSignUpApi(joinInputs);
       if (res.status === 200) {
@@ -38,7 +33,6 @@ function Joinpage() {
       console.log(err);
     }
     console.log(joinInputs);
-    // navigate("/login")
   };
 
   return (
