@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import ModifyBtn from '../components/ModifyBtn';
 
 function Mypage() {
+
     return (
         <MainLayout>
             <MypageContainer>

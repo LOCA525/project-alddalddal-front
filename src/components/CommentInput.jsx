@@ -61,7 +61,7 @@ const CommentInput = () => {
 
               
                   <Select onClick={ClickSelect}>
-                    {selectedOption}
+                    {selectedOption}<div>▼</div>
                   </Select>
                   {(option1 === true) && <SelectedOption
                     option={option}
