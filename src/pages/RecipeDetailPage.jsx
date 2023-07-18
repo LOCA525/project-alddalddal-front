@@ -2,39 +2,53 @@ import React from "react";
 import { MainLayout } from "../styles/layouts";
 import { styled } from "styled-components";
 import IngredientItem from "../components/IngredientItem";
+import { useQuery } from "react-query";
+import { getRecipeDetailPageApi } from "../api/users";
+import { useParams } from "react-router-dom";
 
 const RecipeDetailPage = () => {
+  const { id } = useParams();
+  const { data, isLoading, isError, error } = useQuery(["recipeDetailData", id], () => getRecipeDetailPageApi(id));
+  console.log(data);
+
   return (
     <MainLayout>
-      <MainContainer>
-        <ImageContainer></ImageContainer>
-        <ContentContainer>
-          <Title>셜리템플 Shirley Temple</Title>
-          <Content>미국의 아역배우 셜리 템플을 위해 만들어진 심플하고 대중적인 무알콜 칵테일입니다.</Content>
-          <Alcohol>도수 : 무알콜 </Alcohol>
-          <ZzimBtn>Pick !</ZzimBtn>
-        </ContentContainer>
-      </MainContainer>
+      {isLoading ? (
+        <div></div>
+      ) : (
+        <div>
+          <MainContainer>
+            <ImageContainer></ImageContainer>
+            <ContentContainer>
+              <Title>{data.data.name}</Title>
+              <Content>{data.data.explanation}</Content>
+              <Alcohol>베이스 : {data.data.base} </Alcohol>
+              <ZzimBtn>Pick !</ZzimBtn>
+            </ContentContainer>
+          </MainContainer>
 
-      <RecipeContainer>
-        <ExplainContainer>
-          <TitleContainer>재료 정보</TitleContainer>
-          <IngredientContainer>
-            {/* 재료 items 배열로 받아와서 map으로 뿌릴것 */}
-            <IngredientItem />
-            <IngredientItem />
-            <IngredientItem />
-          </IngredientContainer>
-        </ExplainContainer>
+          <RecipeContainer>
+            <ExplainContainer>
+              <TitleContainer>재료 정보</TitleContainer>
+              <IngredientContainer>
+                {/* 재료 items 배열로 받아와서 map으로 뿌릴것 */}
+                {data.data.ingredientList.map((item) => {
+                  return <IngredientItem item={item} key={item.recipeId} />;
+                })}
+              </IngredientContainer>
+            </ExplainContainer>
 
-        <ExplainContainer>
-          <TitleContainer>레시피 설명</TitleContainer>
-          <RecipeContent>
-            1. 하이볼잔에 각얼음을 넣는다. 2. 얼음위에 소주와 토닉워터를 1:2의 비율로 붓는다.(토닉워터는 반드시 단맛이
-            있는걸로!) 3. 레몬 슬라이스로 장식한다.(귀찮으면 레몬즙이나 라임즙을 대신 넣어도 좋음)
-          </RecipeContent>
-        </ExplainContainer>
-      </RecipeContainer>
+            <ExplainContainer>
+              <TitleContainer>레시피 설명</TitleContainer>
+              <RecipeContent>
+                {data.data.makingDetailList.map((item) => {
+                  return <div>{item.making}</div>;
+                })}
+              </RecipeContent>
+            </ExplainContainer>
+          </RecipeContainer>
+        </div>
+      )}
     </MainLayout>
   );
 };
@@ -140,12 +154,30 @@ const IngredientContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.08) 3px 8px 20px;
   padding: 50px 400px 50px 400px;
   margin-bottom: 30px;
+  @media (max-width: 1189px) {
+    padding: 50px 200px 50px 200px;
+  }
+  @media (max-width: 800px) {
+    padding: 50px 100px 50px 100px;
+  }
+  @media (max-width: 400px) {
+    padding: 50px 0 50px 0;
+  }
 `;
 
 const RecipeContent = styled.div`
   align-items: center;
+  line-height: 50px;
+  font-family: "GoryeongStrawberry";
   box-shadow: rgba(0, 0, 0, 0.08) 3px 8px 20px;
   padding: 50px 150px 50px 150px;
+
+  @media (max-width: 800px) {
+    padding: 50px 50px 50px 50px;
+  }
+  @media (max-width: 400px) {
+    padding: 50px 0 50px 0;
+  }
 `;
 
 export default RecipeDetailPage;

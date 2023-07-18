@@ -1,11 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const IngredientItem = () => {
+const IngredientItem = ({ item }) => {
   return (
     <IngredientItemContainer>
-      <Name>얼음</Name>
-      <Amount>100g</Amount>
+      <Name>{item?.name}</Name>
+      <Amount>{item?.amount}</Amount>
     </IngredientItemContainer>
   );
 };

@@ -2,15 +2,12 @@ import React from "react";
 import { styled } from "styled-components";
 import Card from "./Card";
 
-const CardList = () => {
+const CardList = ({ data }) => {
   return (
     <CardListContainer>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {data?.data.map((item) => {
+        return <Card item={item} key={item.recipeId} />;
+      })}
     </CardListContainer>
   );
 };
