@@ -9,7 +9,7 @@ const CommentInput = () => {
   const [comments, setComments] = useState({
     id: "",
     nickName: "",
-    comments: ""
+    comment: ""
   });
 
   const onChangeCommentHandler = (event) => {
@@ -20,13 +20,24 @@ const CommentInput = () => {
     });
   };
 
-  const [selectedOption, setSelectedOption] = useState('리액트')
+  const onClickCommentHandler = () => {
+    alert(comments.comment);
+
+    setComments({
+      id: "",
+      nickName: "",
+      comment: ""
+    })
+  };
+
+  const [selectedOption, setSelectedOption] = useState('선택')
 
   const option = [
-    { value: 1, name: '럼주' },
-    { value: 2, name: 'a' },
-    { value: 3, name: 'b' },
-    { value: 4, name: 'c' }
+    { value: 1, name: '선택' },
+    { value: 2, name: '럼주' },
+    { value: 3, name: 'a' },
+    { value: 4, name: 'b' },
+    { value: 5, name: 'c' }
   ];
 
   const [option1, setOption1] = useState(false);
@@ -47,8 +58,8 @@ const CommentInput = () => {
           <CommentTitle>한 마디 남겨보세요</CommentTitle>
           <div onClick={clickBackground}>
             <SelectBox>
-              <Box>
-                <div>
+
+              
                   <Select onClick={ClickSelect}>
                     {selectedOption}
                   </Select>
@@ -57,8 +68,8 @@ const CommentInput = () => {
                     setOption1={setOption1}
                     setSelectedOption={setSelectedOption}
                   />}
-                </div>
-              </Box>
+           
+
             </SelectBox>
           </div>
         </CommentTitleContainer>
@@ -69,7 +80,9 @@ const CommentInput = () => {
           placeholder="입력해주세요"
           onChange={onChangeCommentHandler} />
         <AddBtnContainer>
-          <AddBtn>입력</AddBtn>
+          <AddBtn
+            onClick={onClickCommentHandler}
+          >입력</AddBtn>
         </AddBtnContainer>
       </InputContainer>
     </div>
@@ -135,17 +148,14 @@ const AddBtn = styled.button`
 `;
 
 const SelectBox = styled.div`
+    display: flex;
     width: 100%;
     height: 80px;
     margin-top: 10px;
 `;
 
-const Box = styled.div`
-    display: flex;
-`
-
 const Select = styled.div`
-    width: 300px;
+    width: 200px;
     height: 40px;
     border: 1px solid;
     border-radius: 8px;
@@ -155,6 +165,17 @@ const Select = styled.div`
     padding-left: 12px;
     padding-right: 12px;
     justify-content: space-between;
+    
+    &:hover {
+        background-color: #fafafa;
+        cursor: pointer;
+    };
+
+    @media screen and (max-width: 750px) {
+        font-size: 80%;
+        justify-content: center;
+        width: 100px;
+    } 
     
 `;
 

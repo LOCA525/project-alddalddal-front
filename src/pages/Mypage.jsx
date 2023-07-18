@@ -3,6 +3,7 @@ import { MainLayout, TitleLayout } from '../styles/layouts'
 import { styled } from 'styled-components';
 import CommentCard from '../components/CommentCard';
 import Card from '../components/Card';
+import ModifyBtn from '../components/ModifyBtn';
 
 function Mypage() {
     return (
@@ -20,7 +21,7 @@ function Mypage() {
                     </EmailTextContainer>
                     <NickNameTextContainer>
                         <h4>🙍‍♂️🙍 닉네임</h4>
-                        <ModifyBtn>수정</ModifyBtn>
+                        <ModifyBtn />
                     </NickNameTextContainer>
                 </ImpomationContainer>
                 <MypageTitleContainer>
@@ -53,6 +54,8 @@ function Mypage() {
 }
 
 const MypageContainer = styled.div`
+    display: flex;
+    display: grid;
     margin-top: 20px;
 `;
 
@@ -105,22 +108,6 @@ const NickNameTextContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`;
-
-const ModifyBtn = styled.button`
-    width: 80px;
-    height: 30px;
-    color: white;
-    font-weight: bolder;
-    background-color: #f79327;
-    border-radius: 8px;
-    &:hover {
-        background-color: #ca6b34;
-        cursor: pointer;
-    };
-    &:active {
-        height: 31px;
-    };
 `;
 
 const CommentListContainer = styled.div`

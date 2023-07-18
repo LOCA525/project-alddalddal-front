@@ -22,29 +22,41 @@ const SelectedOption = ({ option, setOption1, setSelectedOption }) => {
 
 const OverSelectOptionBox = styled.div`
     z-index: 30;
-    border-left: 1px solid #8a8a8a;
-    border-right: 1px solid #8a8a8a;
-    border-bottom: 1px solid #8a8a8a;
+    border: 1px solid #8a8a8a;
     border-radius: 8px;
     background-color: white;
-    width: 300px;
+    width: 200px;
     height: auto;
     position: absolute;
+
+    @media screen and (max-width: 750px) {
+        font-size: 80%;
+        justify-content: center;
+        width: 100px;
+    } 
 `;
 
 const SelectOption = styled.div`
     font-size: 12px;
-    width: 300px;
+    width: 200px;
     display: flex;
     align-items: center;
     padding-left: 12px;
     height: 40px;
 
     &:hover {
+        font-size: 13px;
+        font-weight: bolder;
         background-color: #eee;
     }
 
-    &:first-child {
+    @media screen and (max-width: 750px) {
+        font-size: 80%;
+        justify-content: center;
+        width: 100px;
+    } 
+
+    /* &:first-child {
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
     }
@@ -52,7 +64,7 @@ const SelectOption = styled.div`
     &:last-child {
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
-    }
+    } */
 `;
 
 export { SelectedOption }

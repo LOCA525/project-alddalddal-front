@@ -96,6 +96,10 @@ const LogoContainer = styled.div`
     cursor: pointer;
     width: 135px;
   }
+
+  &:active {
+    width: 130px;
+  }
 `;
 
 const HamburgerButton = styled.div`
