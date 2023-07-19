@@ -13,6 +13,12 @@ export const postLoginApi = async (body) => {
   console.log(res);
   return res;
 };
+// 유저 닉네임 변경
+export const putNicknameApi = async (body) => {
+  const res = await instance.put("/mypage", body);
+  console.log(res);
+  return res;
+};
 // 마이페이지 조회
 export const getMyPage = async () => {
   const res = await instance.get("/mypage");

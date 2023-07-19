@@ -28,6 +28,8 @@ function Joinpage() {
       const res = await postSignUpApi(joinInputs);
       if (res.status === 200) {
         console.log("res", res);
+        alert("회원가입 완료");
+        navigate("/login");
       }
     } catch (err) {
       console.log(err);
