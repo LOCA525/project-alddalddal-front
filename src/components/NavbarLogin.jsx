@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { styled } from 'styled-components';
 // import { loginBtn } from '../redux/modules/ProjectADD';
 
-function NavbarLogin({navigate}) {
+function NavbarLogin({navigate, data}) {
 
     // const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ function NavbarLogin({navigate}) {
 
   return (
     <LoginBtnWrapper>
-        <NickNameText>닉네임</NickNameText>
+        <NickNameText>{data.data.nickname}</NickNameText>
         <LoginBtn
             onClick={() => {
                 onModalClickBtnHandler()

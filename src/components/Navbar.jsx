@@ -5,6 +5,7 @@ import logo from "../images/알딸딸로고.png";
 import HamburgerModal from "./HambergerModal";
 import { getUserInfoApi } from "../api/users";
 import { useQuery } from "react-query";
+import NavbarLogin from "./NavbarLogin";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const NavBar = () => {
     },
   });
 
+  // const nickName = data.data.nickname;
   return isLoading ? (
     <div></div>
   ) : (
@@ -64,7 +66,7 @@ const NavBar = () => {
             </NavBtnContainer>
             <NavBtnContainer>유저들의 레시피</NavBtnContainer>
           </NavContainer>
-          {data.data.flag === false ? (
+          {data?.data.flag === false ? (
             <LoginBtn
               onClick={() => {
                 navigate("/login");
@@ -74,7 +76,8 @@ const NavBar = () => {
               로그인
             </LoginBtn>
           ) : (
-            <LoginBtn>{data.data.nickname}</LoginBtn>
+            // <LoginBtn>{data.data.nickname}</LoginBtn>
+            <NavbarLogin data={data} navigate={navigate} />
           )}
         </div>
       </NavBarContainer>
