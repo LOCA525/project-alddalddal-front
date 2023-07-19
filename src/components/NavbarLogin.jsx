@@ -10,20 +10,21 @@ function NavbarLogin({navigate}) {
     const [modal, setModal] = useState(false);
     
     const onModalClickBtnHandler = () => {
-        setModal(true)
+        setModal(!modal);
     };
 
   return (
-    <>
+    <LoginBtnWrapper>
+        <NickNameText>닉네임</NickNameText>
         <LoginBtn
             onClick={() => {
                 onModalClickBtnHandler()
             }}
         >
-            닉네임
+            ▽
         </LoginBtn>
         {(modal === true) && <LoginModal navigate={navigate} setModal={setModal} />}
-    </>
+    </LoginBtnWrapper>
   )
 }
 
@@ -35,12 +36,15 @@ const LoginModal = ({navigate, setModal}) => {
 
     return (
         <BackgoroundModal>
-            <MypageBtn onClick={() => {
-                setModal(false)
-                navigate("/mypage")
-                }}>마이페이지로 이동</MypageBtn>
-            <CloseBtn onClick={() => setModal(false)}>닫기</CloseBtn>           
-            {/* <button onClick={onClickLogoutBtnHandler}>로그아웃</button> */}
+            <ModalContainer>닉네임</ModalContainer>
+                <MypageBtn onClick={() => {
+                    setModal(false)
+                    navigate("/mypage")
+                    }}>마이페이지로 이동</MypageBtn>
+                <MypageBtn>로그아웃하기</MypageBtn>
+                <CloseBtn onClick={() => setModal(false)}>닫기</CloseBtn>           
+                {/* <button onClick={onClickLogoutBtnHandler}>로그아웃</button> */}
+            
         </BackgoroundModal>
     )
 };
@@ -50,8 +54,9 @@ const BackgoroundModal = styled.div`
     border-radius: 10px;
     box-shadow: rgba(150, 150, 150, 0.45) 2px 2px 10px;
     margin: 60px 30px;
+    padding: 20px;
     width: 300px;
-    height: 200px;
+    height: 300px;
     position: fixed;
     top: 0;
     right: 0;
@@ -61,39 +66,49 @@ const BackgoroundModal = styled.div`
     z-index: 9999;
   `;
 
-const LoginBtn = styled.div`
+const NickNameText = styled.div`
+    font-weight: bolder;
+    font-size: 15px;
+    margin-left: 30px;
+    font-family: "Ramche";
+`;
+
+const LoginBtnWrapper = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const LoginBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 15px;
   font-family: "GoryeongStrawberry";
-  width: 70px;
-  height: 37px;
-  border: 1.4px solid #e6e4e8;
-  border-radius: 7px;
-  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
   &:hover {
     color: #495057;
-    border: 1.4px solid #495057;
+    background-color: #e4e4e4;
     cursor: pointer;
     transition: 0.5s;
   }
 `;
 
-const MypageBtn = styled.button`
-    margin: 50px auto 50px auto;
-    height: 80px;
-    width: 200px;
-    border-radius: 10px;
-    border: 1px solid #ca6b34;
-    font-weight: bolder;
+const MypageBtn = styled.div`
+    margin: 20px auto 0px auto;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
     font-size: 110%;
-    box-shadow: rgba(150, 150, 150, 0.45) 1px 1px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "GoryeongStrawberry";
 
     &:hover {
-        background-color: #ca6b34;
+        background-color: #d3d3d3;
         cursor: pointer;
-        transition: 0.5s;
     };
     &:active {
         width: 202px;
@@ -101,13 +116,26 @@ const MypageBtn = styled.button`
 `;
 
 const CloseBtn = styled.button`
-    margin: 50px auto 50px auto;
+    margin: 20px auto 10px auto;
     border-radius: 10px;
 
     &:hover {
         font-weight: bolder;
         cursor: pointer;
     };
+`;
+
+const ModalContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    font-family: "TTWanjudaedunsancheB";
+    font-size: 150%;
 `;
 
 export default NavbarLogin

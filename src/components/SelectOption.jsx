@@ -21,6 +21,7 @@ const SelectedOption = ({ option, setOption1, setSelectedOption }) => {
 }
 
 const OverSelectOptionBox = styled.div`
+    margin-top: 40px;
     z-index: 30;
     border: 1px solid #8a8a8a;
     border-radius: 8px;
@@ -37,6 +38,7 @@ const OverSelectOptionBox = styled.div`
 `;
 
 const SelectOption = styled.div`
+    color: black;
     font-size: 12px;
     width: 200px;
     display: flex;
@@ -48,6 +50,7 @@ const SelectOption = styled.div`
         font-size: 13px;
         font-weight: bolder;
         background-color: #eee;
+        border-radius: 8px;
     }
 
     @media screen and (max-width: 750px) {

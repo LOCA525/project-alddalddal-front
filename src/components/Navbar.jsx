@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/알딸딸로고.png";
 import HamburgerModal from "./HambergerModal";
+import NavbarLogin from "./NavbarLogin";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const NavBar = () => {
             </NavBtnContainer>
             <NavBtnContainer>유저들의 레시피</NavBtnContainer>
           </NavContainer>
-
+            {/* <NavbarLogin navigate={navigate} /> */}
           <LoginBtn
             onClick={() => {
               navigate("/login");

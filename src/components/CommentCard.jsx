@@ -7,24 +7,19 @@ const CommentCard = () => {
   
   const { isLoading, error, data } = useQuery("loungeData", getLoungePageApi);
   
-  
-
-
-
   return (
     <CommentCardContainer>
-      {data?.data.map((item) => {
+      {data?.data.reverse().map((item) => {
         return (
           <div key={item.id}>
             <UserContainer>
               <div>{item.nickname}</div>
-              <div>{item.base}</div>
+              <div>종류 ▽ <BaseText>{item.base}</BaseText></div>
             </UserContainer>
             <ContentContainer>
               <div>{item.content}</div>
               <div><RemoveBtn>삭제</RemoveBtn></div>
             </ContentContainer>
-            
           </div>
         )
       })}
@@ -73,6 +68,14 @@ const RemoveBtn = styled.button`
     &:active {
         height: 31px;
     };
+`;
+
+const BaseText = styled.div`
+  margin: 5px;
+  padding-left: 20px;
+  font-size: 80%;
+  color: #0d5358;
+  font-weight: bolder;
 `;
 
 export default CommentCard;

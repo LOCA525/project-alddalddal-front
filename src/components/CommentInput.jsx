@@ -69,19 +69,19 @@ const CommentInput = () => {
             setSelectedOption={setSelectedOption}
           />
           : null}
-          <CommentTitle>한 마디 남겨보세요</CommentTitle>
-          <div onClick={clickBackground}>
-            <SelectBox>              
-                  <Select onClick={ClickSelect}>
-                    {selectedOption}<div>▼</div>
-                  </Select>
-                  {(option1 === true) && <SelectedOption
-                    option={option}
-                    setOption1={setOption1}
-                    setSelectedOption={setSelectedOption}
-                  />}
-            </SelectBox>
-          </div>
+            <CommentTitle>나의 의견을 남겨보아요!</CommentTitle>
+            <div onClick={clickBackground}>
+              <SelectBox>              
+                    <Select onClick={ClickSelect}>
+                      {selectedOption}<div>▼</div>
+                    </Select>
+                    {(option1 === true) && <SelectedOption
+                      option={option}
+                      setOption1={setOption1}
+                      setSelectedOption={setSelectedOption}
+                    />}
+              </SelectBox>
+            </div>
         </CommentTitleContainer>
         <CommentInputBox
           type="text"
@@ -102,22 +102,32 @@ const CommentInput = () => {
 const CommentTitle = styled.div`
   font-family: "GoryeongStrawberry";
   font-size: 20px;
-  margin-bottom: 20px;
 `;
 
 const CommentTitleContainer = styled.div`
+  width: 100%;
+  height: 60px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #f79327;
   padding: 10px;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
+  padding: 0px 16px;
+  color: white;
+  font-family: "GoryeongStrawberry";
+  font-size: 20px;
 `;
 
 const CommentInputBox = styled.input`
-  width: 100%;
+  width: 90%;
   height: 70px;
   border: 1px solid gray;
   border-radius: 10px;
+  margin: 30px 0px 0px 15px;
   padding: 10px;
+  display: flex;
   word-break: break-all;
   overflow-y: scroll;
 
@@ -128,10 +138,9 @@ const CommentInputBox = styled.input`
 
 const InputContainer = styled.div`
   width: 100%;
-  padding: 10px 0 10px 0;
+  padding: 0px 0 10px 0;
   border: 2px solid #f79327;
   border-radius: 10px;
-  padding: 16px;
   max-height: 700px;
 `;
 
@@ -147,7 +156,7 @@ const AddBtn = styled.button`
     font-weight: bolder;
     background-color: #f79327;
     border-radius: 8px;
-    margin-top: 10px;
+    margin: 15px 15px 0px 0px;
 
     &:hover {
         background-color: #ca6b34;
@@ -161,7 +170,6 @@ const AddBtn = styled.button`
 const SelectBox = styled.div`
     display: flex;
     width: 100%;
-    height: 80px;
     margin-top: 10px;
 `;
 
@@ -178,7 +186,7 @@ const Select = styled.div`
     justify-content: space-between;
     
     &:hover {
-        background-color: #fafafa;
+        background-color: #ca6b34;
         cursor: pointer;
     };
 
