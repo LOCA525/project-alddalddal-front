@@ -1,45 +1,41 @@
-import React, { useEffect } from "react";
 import { MainLayout, TitleLayout } from "../styles/layouts";
 import { styled } from "styled-components";
-import CommentCard from "../components/CommentCard";
 import Card from "../components/Card";
 import ModifyBtn from "../components/ModifyBtn";
-import { getMainApi, getMyPage } from "../api/users";
+import { getMyPage } from "../api/users";
 import { useQuery } from "react-query";
 
 function Mypage() {
   const { isLoading, error, data } = useQuery("myPageData", getMyPage);
-  console.log("마이페이지", data);
+  if (isLoading) return "Loading...";
+  console.log(data);
   return (
     <MainLayout>
-      {isLoading ? (
-        <div></div>
-      ) : (
-        <MypageContainer>
-          <MypageTitleContainer>
-            <TitleLayout>내 정보</TitleLayout>
-          </MypageTitleContainer>
-          <ImpomationContainer>
-            <MyprofilContainer>My 프로필</MyprofilContainer>
-            <EmailTextContainer>
-              <h4>📧 {data.data.email}</h4>
-            </EmailTextContainer>
-            <NickNameTextContainer>
-              <h4>🙍‍♂️🙍 {data.data.nickname}</h4>
-              <ModifyBtn />
-            </NickNameTextContainer>
-          </ImpomationContainer>
-          <MypageTitleContainer>
-            <TitleLayout>나의 찜 목록</TitleLayout>
-          </MypageTitleContainer>
-          <ImpomationContainer>
-            <CardListContainer>
-              {data.data.zzimRecipes.map(() => {
-                return <Card />;
-              })}
-            </CardListContainer>
-          </ImpomationContainer>
-          {/* <MypageTitleContainer>
+      <MypageContainer>
+        <MypageTitleContainer>
+          <TitleLayout>내 정보</TitleLayout>
+        </MypageTitleContainer>
+        <ImpomationContainer>
+          <MyprofilContainer>My 프로필</MyprofilContainer>
+          <EmailTextContainer>
+            <h4>📧 {data.data.email}</h4>
+          </EmailTextContainer>
+          <NickNameTextContainer>
+            <h4>🙍‍♂️🙍 {data.data.nickname}</h4>
+            <ModifyBtn />
+          </NickNameTextContainer>
+        </ImpomationContainer>
+        <MypageTitleContainer>
+          <TitleLayout>나의 찜 목록</TitleLayout>
+        </MypageTitleContainer>
+        <ImpomationContainer>
+          <CardListContainer>
+            {data?.data.zzimRecipes.map(() => {
+              return <Card />;
+            })}
+          </CardListContainer>
+        </ImpomationContainer>
+        {/* <MypageTitleContainer>
           <TitleLayout>내가 남긴 메세지</TitleLayout>
         </MypageTitleContainer>
         <ImpomationContainer>
@@ -50,8 +46,7 @@ function Mypage() {
             <CommentCard />
           </CommentListContainer>
         </ImpomationContainer> */}
-        </MypageContainer>
-      )}
+      </MypageContainer>
     </MainLayout>
   );
 }

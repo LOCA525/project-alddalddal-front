@@ -1,36 +1,36 @@
-import React from 'react'
-import { styled } from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
 
-function MainCard(item) {
-
-    console.log(item.item)
-
+function MainCard({ item }) {
+  const navigate = useNavigate();
+  console.log(item);
   return (
-    <MainCardContainer>
-        <MainCardImageContainer>
-            <Images src={item?.item.imageUrl} alt="Error" />
-        </MainCardImageContainer>
-        <MainCardContentContainer>
-            <MainTitleContainer>{item?.item.name}</MainTitleContainer>
-        </MainCardContentContainer>
+    <MainCardContainer
+      onClick={() => {
+        navigate(`/recipe/detail/${item.recipeId}`);
+      }}
+    >
+      <MainCardImageContainer>
+        <Images src={item.imageUrl} alt="Error" />
+      </MainCardImageContainer>
+      <MainCardContentContainer>
+        <MainTitleContainer>{item.name}</MainTitleContainer>
+      </MainCardContentContainer>
     </MainCardContainer>
-  )
+  );
 }
 
 const MainCardContainer = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 290px;
+  height: 290px;
   background-color: #fff9eaeb;
   display: flex;
   margin: 15px;
   border-radius: 10px;
   display: grid;
-  
-  
+
   cursor: pointer;
-  &:hover {
-    border: 3px solid #c08181eb;
-  }
 `;
 
 const MainCardImageContainer = styled.div`
@@ -39,10 +39,10 @@ const MainCardImageContainer = styled.div`
 `;
 
 const Images = styled.img`
-    width: 100%;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `;
 
 const MainTitleContainer = styled.div`
@@ -57,4 +57,4 @@ const MainCardContentContainer = styled.div`
   justify-content: center;
 `;
 
-export default MainCard
+export default MainCard;

@@ -4,9 +4,8 @@ import { styled } from "styled-components";
 import { getLoungePageApi, postLoungePageApi } from "../api/users";
 
 const CommentCard = () => {
-  
   const { isLoading, error, data } = useQuery("loungeData", getLoungePageApi);
-  
+
   return (
     <CommentCardContainer>
       {data?.data.reverse().map((item) => {
@@ -14,14 +13,18 @@ const CommentCard = () => {
           <div key={item.id}>
             <UserContainer>
               <div>{item.nickname}</div>
-              <div>종류 ▽ <BaseText>{item.base}</BaseText></div>
+              <div>
+                종류 ▽ <BaseText>{item.base}</BaseText>
+              </div>
             </UserContainer>
             <ContentContainer>
               <div>{item.content}</div>
-              <div><RemoveBtn>삭제</RemoveBtn></div>
+              <div>
+                <RemoveBtn>삭제</RemoveBtn>
+              </div>
             </ContentContainer>
           </div>
-        )
+        );
       })}
     </CommentCardContainer>
   );
@@ -55,19 +58,19 @@ const ContentContainer = styled.div`
 `;
 
 const RemoveBtn = styled.button`
-    width: 80px;
-    height: 30px;
-    color: white;
-    font-weight: bolder;
-    background-color: #f79327;
-    border-radius: 8px;
-    &:hover {
-        background-color: #ca6b34;
-        cursor: pointer;
-    };
-    &:active {
-        height: 31px;
-    };
+  width: 80px;
+  height: 30px;
+  color: white;
+  font-weight: bolder;
+  background-color: #f79327;
+  border-radius: 8px;
+  &:hover {
+    background-color: #ca6b34;
+    cursor: pointer;
+  }
+  &:active {
+    height: 31px;
+  }
 `;
 
 const BaseText = styled.div`

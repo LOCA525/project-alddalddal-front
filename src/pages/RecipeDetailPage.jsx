@@ -10,6 +10,7 @@ const RecipeDetailPage = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useQuery(["recipeDetailData", id], () => getRecipeDetailPageApi(id));
   console.log(data);
+  if (isLoading) return "Loading...";
 
   return (
     <MainLayout>
