@@ -1,10 +1,36 @@
 import React, { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { styled } from "styled-components";
-import { getLoungePageApi, postLoungePageApi } from "../api/users";
+import { deleteLoungePageApi, getLoungePageApi, getUserInfoApi, postLoungePageApi } from "../api/users";
 
 const CommentCard = () => {
+
+  // const { isLoading, error, data } = useQuery("userInfo", getUserInfoApi, {
+  //   onSuccess: (data) => {
+  //     localStorage.setItem("user", JSON.stringify({ name: data.data.nickname, islogin: data.data.flag }));
+  //   },
+  // });
+
+  const localData = JSON.parse(localStorage.user)
+
+  // console.log(localData)
+
+  const onRemoveBtnHandler = async (id) => {
+    console.log(id);
+    try {
+      const response = await deleteLoungePageApi(id);
+      if (response.status === 200) {
+        console.log("res", response);
+        alert("삭제 완료!");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const { isLoading, error, data } = useQuery("loungeData", getLoungePageApi);
+
+  console.log(data);
 
   return (
     <CommentCardContainer>
@@ -12,16 +38,26 @@ const CommentCard = () => {
         return (
           <div key={item.id}>
             <UserContainer>
-              <div>{item.nickname}</div>
+              {
+              (item.nickname === localData.name)
+              ? <MyComment>나의 의견</MyComment>
+              : <div>{item.nickname} 님의 의견</div>
+              }
               <div>
                 종류 ▽ <BaseText>{item.base}</BaseText>
               </div>
             </UserContainer>
             <ContentContainer>
               <div>{item.content}</div>
-              <div>
-                <RemoveBtn>삭제</RemoveBtn>
-              </div>
+              {
+              (item.nickname === localData.name)
+              && <div>
+                  <RemoveBtn onClick={() => {
+                    onRemoveBtnHandler(item.id)
+                    }}>삭제</RemoveBtn>
+                </div>
+              }
+              
             </ContentContainer>
           </div>
         );
@@ -57,6 +93,10 @@ const ContentContainer = styled.div`
   justify-content: space-between;
 `;
 
+const MyComment = styled.div`
+  color: green;
+`;
+
 const RemoveBtn = styled.button`
   width: 80px;
   height: 30px;
@@ -69,7 +109,7 @@ const RemoveBtn = styled.button`
     cursor: pointer;
   }
   &:active {
-    height: 31px;
+    width: 81px;
   }
 `;
 

@@ -8,6 +8,7 @@ import CommentList from "../components/CommentList";
 import { getMainApi } from "../api/users";
 import { useQuery } from "react-query";
 import MainCardList from "../components/MainCardList";
+import MainCommentList from "../components/MainCommentList";
 const MainPage = () => {
   const { isLoading, error, data } = useQuery("mainPageData", getMainApi);
 
@@ -27,7 +28,7 @@ const MainPage = () => {
           </PopularListContainer>
           <LoungeContainer>
             <TitleLayout>☕️ 라운지</TitleLayout>
-            <CommentList />
+            <MainCommentList />
           </LoungeContainer>
         </ContentContainer>
       </MainLayout>

@@ -20,6 +20,7 @@ const NavBar = () => {
   });
 
   if (isLoading) return "Loading...";
+  console.log("navbar", data)
 
   // const nickName = data.data.nickname;
   return (

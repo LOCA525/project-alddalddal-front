@@ -92,6 +92,7 @@ const HeaderText = styled.div`
     font-family: "Ramche";
     font-size: 25px;
     font-weight: bolder;
+    color: black;
 `;
 
 const ButtonContainer = styled.div`

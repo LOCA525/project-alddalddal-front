@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 
 function MainCard({ item }) {
   const navigate = useNavigate();
+  //   console.log(item);
   return (
     <MainCardContainer
       onClick={() => {

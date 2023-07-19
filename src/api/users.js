@@ -60,14 +60,8 @@ export const getLoungePageApi = async () => {
   return res;
 };
 
-// 찜버튼 찜하기
-export const postZzimApi = async (id) => {
-  const res = await instance.post(`/recipes/${id}`);
-  return res;
-};
-
-// 찜버튼 찜하기
-export const deleteZzimApi = async (id) => {
-  const res = await instance.delete(`/recipes/${id}`);
+// 라운지페이지 삭제
+export const deleteLoungePageApi = async (id) => {
+  const res = await instance.delete(`/lounge/${id}`);
   return res;
 };
