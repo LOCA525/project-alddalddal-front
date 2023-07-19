@@ -11,9 +11,11 @@ const Card = ({ item }) => {
         navigate(`/recipe/detail/${item.recipeId}`);
       }}
     >
-      <CardImageContainer></CardImageContainer>
+      <CardImageContainer>
+        <img src={item.imageUrl} alt="d" />
+      </CardImageContainer>
       <CardContentContainer>
-        <TitleContainer>{item?.name}</TitleContainer>
+        <TitleContainer>{item.name}</TitleContainer>
         <ContentContainer>{item?.explanation}</ContentContainer>
       </CardContentContainer>
     </CardContainer>

@@ -26,13 +26,14 @@ function Loginpage() {
     });
   };
 
-  // 로그인 버튼클릭시 토큰 발급후 세션스토리지 저장
   const onLoginBtnHandler = async () => {
     console.log(loginInputs);
     try {
       const response = await postLoginApi(loginInputs);
       if (response.status === 200) {
         console.log("res", response);
+        alert("로그인 완료!");
+        navigate("/");
       }
     } catch (err) {
       console.log(err);

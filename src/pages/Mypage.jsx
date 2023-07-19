@@ -11,34 +11,34 @@ function Mypage() {
   const { isLoading, error, data } = useQuery("myPageData", getMyPage);
   return (
     <MainLayout>
-      <MypageContainer>
-        <MypageTitleContainer>
-          <TitleLayout>내 정보</TitleLayout>
-        </MypageTitleContainer>
-        <ImpomationContainer>
-          <MyprofilContainer>My 프로필</MyprofilContainer>
-          <EmailTextContainer>
-            <h4>📧 *******@*****.***</h4>
-          </EmailTextContainer>
-          <NickNameTextContainer>
-            <h4>🙍‍♂️🙍 닉네임</h4>
-            <ModifyBtn />
-          </NickNameTextContainer>
-        </ImpomationContainer>
-        <MypageTitleContainer>
-          <TitleLayout>나의 찜 목록</TitleLayout>
-        </MypageTitleContainer>
-        <ImpomationContainer>
-          <CardListContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </CardListContainer>
-        </ImpomationContainer>
-        <MypageTitleContainer>
+      {isLoading ? (
+        <div></div>
+      ) : (
+        <MypageContainer>
+          <MypageTitleContainer>
+            <TitleLayout>내 정보</TitleLayout>
+          </MypageTitleContainer>
+          <ImpomationContainer>
+            <MyprofilContainer>My 프로필</MyprofilContainer>
+            <EmailTextContainer>
+              <h4>📧 {data.data.email}</h4>
+            </EmailTextContainer>
+            <NickNameTextContainer>
+              <h4>🙍‍♂️🙍 {data.data.nickname}</h4>
+              <ModifyBtn />
+            </NickNameTextContainer>
+          </ImpomationContainer>
+          <MypageTitleContainer>
+            <TitleLayout>나의 찜 목록</TitleLayout>
+          </MypageTitleContainer>
+          <ImpomationContainer>
+            <CardListContainer>
+              {data.data.zzimRecipes.map(() => {
+                return <Card />;
+              })}
+            </CardListContainer>
+          </ImpomationContainer>
+          {/* <MypageTitleContainer>
           <TitleLayout>내가 남긴 메세지</TitleLayout>
         </MypageTitleContainer>
         <ImpomationContainer>
@@ -48,8 +48,9 @@ function Mypage() {
             <CommentCard />
             <CommentCard />
           </CommentListContainer>
-        </ImpomationContainer>
-      </MypageContainer>
+        </ImpomationContainer> */}
+        </MypageContainer>
+      )}
     </MainLayout>
   );
 }
