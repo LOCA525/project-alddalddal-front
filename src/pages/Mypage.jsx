@@ -8,7 +8,6 @@ import { useQuery } from "react-query";
 function Mypage() {
   const { isLoading, error, data } = useQuery("myPageData", getMyPage);
   if (isLoading) return "Loading...";
-  console.log(data);
   return (
     <MainLayout>
       <MypageContainer>

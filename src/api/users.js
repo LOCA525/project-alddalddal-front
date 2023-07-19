@@ -59,3 +59,15 @@ export const getLoungePageApi = async () => {
   const res = await instance.get("/lounge");
   return res;
 };
+
+// 찜버튼 찜하기
+export const postZzimApi = async (id) => {
+  const res = await instance.post(`/recipes/${id}`);
+  return res;
+};
+
+// 찜버튼 찜하기
+export const deleteZzimApi = async (id) => {
+  const res = await instance.delete(`/recipes/${id}`);
+  return res;
+};

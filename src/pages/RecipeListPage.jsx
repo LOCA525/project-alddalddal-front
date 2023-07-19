@@ -7,9 +7,8 @@ import { getRecipePageApi } from "../api/users";
 
 const RecipeListPage = () => {
   const { isLoading, error, data } = useQuery("recipeData", getRecipePageApi);
-  console.log(data);
-  if (isLoading) return "Loading...";
 
+  if (isLoading) return "Loading...";
   return (
     <MainLayout>
       <FilterBtnContainer></FilterBtnContainer>

@@ -12,7 +12,6 @@ const MainPage = () => {
   const { isLoading, error, data } = useQuery("mainPageData", getMainApi);
 
   if (isLoading) return "Loading...";
-  console.log("mainpage", data);
 
   return (
     // Hot 레시피카드는 6개까지만 띄울것 !

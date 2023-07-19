@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 
 function MainCard({ item }) {
   const navigate = useNavigate();
-  console.log(item);
   return (
     <MainCardContainer
       onClick={() => {
@@ -50,7 +49,6 @@ const MainTitleContainer = styled.div`
   font-weight: 900;
   display: flex;
   font-family: "GoryeongStrawberry";
-
 `;
 
 const MainCardContentContainer = styled.div`

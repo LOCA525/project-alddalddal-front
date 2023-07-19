@@ -5,6 +5,7 @@ import IngredientItem from "../components/IngredientItem";
 import { useQuery } from "react-query";
 import { getRecipeDetailPageApi } from "../api/users";
 import { useParams } from "react-router-dom";
+import ZzimBtn from "../components/ZzimBtn";
 
 const RecipeDetailPage = () => {
   const { id } = useParams();
@@ -19,12 +20,14 @@ const RecipeDetailPage = () => {
       ) : (
         <div>
           <MainContainer>
-            <ImageContainer></ImageContainer>
+            <ImageContainer>
+              <Image src={data.data.imageUrl} />
+            </ImageContainer>
             <ContentContainer>
               <Title>{data.data.name}</Title>
               <Content>{data.data.explanation}</Content>
               <Alcohol>베이스 : {data.data.base} </Alcohol>
-              <ZzimBtn>Pick !</ZzimBtn>
+              <ZzimBtn data={data} />
             </ContentContainer>
           </MainContainer>
 
@@ -70,8 +73,12 @@ const MainContainer = styled.div`
 const ImageContainer = styled.div`
   width: 400px;
   height: 400px;
-  background-color: red;
   border-radius: 20px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 400px;
 `;
 
 const ContentContainer = styled.div`
@@ -111,29 +118,6 @@ const Alcohol = styled.div`
   height: 35px;
   border: 1.6px solid rgba(255, 255, 255, 0.3);
   margin-bottom: 30px;
-`;
-
-const ZzimBtn = styled.div`
-  color: #ffff;
-  float: right;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 100px;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.1);
-  font-family: "GoryeongStrawberry";
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: all 0.3s;
-  }
-
-  &:active {
-    height: 80px;
-  }
 `;
 
 const RecipeContainer = styled.div`
