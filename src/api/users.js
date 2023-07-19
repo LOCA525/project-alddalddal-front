@@ -59,3 +59,9 @@ export const getLoungePageApi = async () => {
   const res = await instance.get("/lounge");
   return res;
 };
+
+// 라운지페이지 삭제
+export const deleteLoungePageApi = async (id) => {
+  const res = await instance.delete(`/lounge/${id}`);
+  return res;
+};

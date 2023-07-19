@@ -12,7 +12,7 @@ function NavbarLogin({navigate, data}) {
     const onModalClickBtnHandler = () => {
         setModal(!modal);
     };
-
+    // console.log(data)
   return (
     <LoginBtnWrapper>
         <NickNameText>{data.data.nickname}</NickNameText><div>님</div>
@@ -21,7 +21,7 @@ function NavbarLogin({navigate, data}) {
                 onModalClickBtnHandler()
             }}
         >
-            ▽
+            ∨
         </LoginBtn>
         {(modal === true)
         && <LoginModal
@@ -98,8 +98,8 @@ const LoginBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  font-family: "GoryeongStrawberry";
+  font-size: 20px;
+  font-weight: bolder;
   width: 40px;
   height: 40px;
   border-radius: 100%;
