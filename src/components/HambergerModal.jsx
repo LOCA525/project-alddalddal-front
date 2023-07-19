@@ -9,14 +9,7 @@ const HamburgerModal = ({ toggleModal, setShowModal }) => {
     <Modal>
       <ModalContent>
         <CloseButton onClick={toggleModal}>&times;</CloseButton>
-        <ModalNavBtnContainer
-          onClick={() => {
-            isLogin ? navigate("/mypage") : navigate("/login");
-            setShowModal(false);
-          }}
-        >
-          마이페이지
-        </ModalNavBtnContainer>
+
         <ModalNavBtnContainer
           onClick={() => {
             navigate("/recipe");
@@ -34,6 +27,14 @@ const HamburgerModal = ({ toggleModal, setShowModal }) => {
           라운지
         </ModalNavBtnContainer>
         <ModalNavBtnContainer>유저들의 레시피</ModalNavBtnContainer>
+        <ModalNavBtnContainer
+          onClick={() => {
+            isLogin ? navigate("/mypage") : navigate("/login");
+            setShowModal(false);
+          }}
+        >
+          마이페이지
+        </ModalNavBtnContainer>
       </ModalContent>
     </Modal>
   );

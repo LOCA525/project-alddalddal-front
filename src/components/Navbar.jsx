@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/알딸딸로고.png";
@@ -21,7 +21,7 @@ const NavBar = () => {
 
   const isLogin = data?.data.flag;
 
-  const nickName = data.data.nickname;
+  // const nickName = data.data.nickname;
   return isLoading ? (
     <div></div>
   ) : (
@@ -59,6 +59,14 @@ const NavBar = () => {
               라운지
             </NavBtnContainer>
             <NavBtnContainer>유저들의 레시피</NavBtnContainer>
+            <NavBtnContainer
+              onClick={() => {
+                data.data.flag ? navigate("/mypage") : navigate("/login");
+                setShowModal(false);
+              }}
+            >
+              마이페이지
+            </NavBtnContainer>
             <NavBtnContainer
               onClick={() => {
                 isLogin ? navigate("/mypage") : navigate("/login");
