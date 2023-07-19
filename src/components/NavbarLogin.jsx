@@ -15,7 +15,7 @@ function NavbarLogin({navigate, data}) {
 
   return (
     <LoginBtnWrapper>
-        <NickNameText>{data.data.nickname}</NickNameText>
+        <NickNameText>{data.data.nickname}</NickNameText><div>님</div>
         <LoginBtn
             onClick={() => {
                 onModalClickBtnHandler()
@@ -23,12 +23,17 @@ function NavbarLogin({navigate, data}) {
         >
             ▽
         </LoginBtn>
-        {(modal === true) && <LoginModal navigate={navigate} setModal={setModal} />}
+        {(modal === true)
+        && <LoginModal
+                navigate={navigate}
+                setModal={setModal}
+                data={data}
+            />}
     </LoginBtnWrapper>
   )
 }
 
-const LoginModal = ({navigate, setModal}) => {
+const LoginModal = ({navigate, setModal, data}) => {
 
     // const onClickLogoutBtnHandler = () => {
     //     dispatch(loginBtn(false));
@@ -36,11 +41,10 @@ const LoginModal = ({navigate, setModal}) => {
 
     return (
         <BackgoroundModal>
-            <ModalContainer>닉네임</ModalContainer>
-                <MypageBtn onClick={() => {
-                    setModal(false)
-                    navigate("/mypage")
-                    }}>마이페이지로 이동</MypageBtn>
+            <NickNameTextContainer>
+                <ModalContainer>{data.data.nickname}</ModalContainer>
+                <div>님</div>
+            </NickNameTextContainer>
                 <MypageBtn>로그아웃하기</MypageBtn>
                 <CloseBtn onClick={() => setModal(false)}>닫기</CloseBtn>           
                 {/* <button onClick={onClickLogoutBtnHandler}>로그아웃</button> */}
@@ -56,7 +60,7 @@ const BackgoroundModal = styled.div`
     margin: 60px 30px;
     padding: 20px;
     width: 300px;
-    height: 300px;
+    height: 200px;
     position: fixed;
     top: 0;
     right: 0;
@@ -66,10 +70,22 @@ const BackgoroundModal = styled.div`
     z-index: 9999;
   `;
 
+const NickNameTextContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+`;
+
 const NickNameText = styled.div`
     font-weight: bolder;
-    font-size: 15px;
-    margin-left: 30px;
+    font-size: 20px;
+    color: #04ac9e;
+    margin: 0px 20px 0px 30px;
     font-family: "Ramche";
 `;
 
@@ -126,14 +142,7 @@ const CloseBtn = styled.button`
 `;
 
 const ModalContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 250px;
-    height: 100px;
-    margin-bottom: 10px;
-    background-color: #e9e9e9;
-    border-radius: 10px;
+    margin: 5px;
     font-family: "TTWanjudaedunsancheB";
     font-size: 150%;
 `;

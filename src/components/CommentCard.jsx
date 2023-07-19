@@ -66,7 +66,7 @@ const RemoveBtn = styled.button`
         cursor: pointer;
     };
     &:active {
-        height: 31px;
+        font-size: 80%;
     };
 `;
 

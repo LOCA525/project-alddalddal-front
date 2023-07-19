@@ -21,7 +21,7 @@ const NavBar = () => {
 
   const isLogin = data?.data.flag;
 
-  // const nickName = data.data.nickname;
+  const nickName = data.data.nickname;
   return isLoading ? (
     <div></div>
   ) : (
@@ -44,14 +44,6 @@ const NavBar = () => {
           <NavContainer>
             <NavBtnContainer
               onClick={() => {
-                isLogin ? navigate("/mypage") : navigate("/login");
-                setShowModal(false);
-              }}
-            >
-              마이페이지
-            </NavBtnContainer>
-            <NavBtnContainer
-              onClick={() => {
                 navigate("/recipe");
                 setShowModal(false);
               }}
@@ -67,6 +59,14 @@ const NavBar = () => {
               라운지
             </NavBtnContainer>
             <NavBtnContainer>유저들의 레시피</NavBtnContainer>
+            <NavBtnContainer
+              onClick={() => {
+                isLogin ? navigate("/mypage") : navigate("/login");
+                setShowModal(false);
+              }}
+            >
+              마이페이지
+            </NavBtnContainer>
           </NavContainer>
           {data?.data.flag === false ? (
             <LoginBtn

@@ -29,6 +29,8 @@ const MainCardContainer = styled.div`
   
   cursor: pointer;
   &:hover {
+    font-size: 17px;
+    font-weight: bold;
     border: 3px solid #c08181eb;
   }
 `;
@@ -46,9 +48,11 @@ const Images = styled.img`
 `;
 
 const MainTitleContainer = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 900;
   display: flex;
+  font-family: "GoryeongStrawberry";
+
 `;
 
 const MainCardContentContainer = styled.div`

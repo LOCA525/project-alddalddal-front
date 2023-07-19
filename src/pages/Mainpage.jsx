@@ -9,7 +9,7 @@ import { getMainApi } from "../api/users";
 import { useQuery } from "react-query";
 import MainCardList from "../components/MainCardList";
 const MainPage = () => {
-  const { isLoading, error, data } = useQuery("myPageData", getMainApi);
+  const { isLoading, error, data } = useQuery("mainPageData", getMainApi);
   // 메인페이지 아직 서버 개발안됨
   // console.log(data);
   // useEffect(() => {
