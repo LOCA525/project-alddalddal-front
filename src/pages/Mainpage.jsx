@@ -30,11 +30,11 @@ const MainPage = () => {
         <ContentContainer>
           <PopularListContainer>
             <TitleLayout>🔥 Hot 레시피</TitleLayout>
-            {/* <CardList /> */}
+            <MainCardList data={data} />
           </PopularListContainer>
           <LoungeContainer>
             <TitleLayout>☕️ 라운지</TitleLayout>
-            {/* <CommentList /> */}
+            <CommentList />
           </LoungeContainer>
         </ContentContainer>
       </MainLayout>
