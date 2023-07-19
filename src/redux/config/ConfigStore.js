@@ -1,10 +1,12 @@
-// import loginUser from '../modules/ProjectADD';
-// import { configureStore } from "@reduxjs/toolkit";
+import AddLoungeContent from '../modules/ProjectADD';
+import LoungeserverData from '../modules/LoungeData';
+import { configureStore } from "@reduxjs/toolkit";
 
-// const store = configureStore({
-//     reducer: {
-//         loginUser,
-//     }
-// });
+const store = configureStore({
+    reducer: {
+        AddLoungeContent,
+        // LoungeserverData
+    }
+});
 
-// export default store;
+export default store;

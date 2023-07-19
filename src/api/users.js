@@ -35,3 +35,15 @@ export const getRecipeDetailPageApi = async (id) => {
   const res = await instance.get(`recipes/${id}`);
   return res;
 };
+
+// 라운지페이지 작성
+export const postLoungePageApi = async (body) => {
+  const res = await instance.post("/lounge", body);
+  return res;
+}
+
+// 라운지페이지 조회
+export const getLoungePageApi = async () => {
+  const res = await instance.get("/lounge");
+  return res;
+}
