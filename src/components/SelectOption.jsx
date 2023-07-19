@@ -51,7 +51,6 @@ const SelectOption = styled.div`
     }
 
     @media screen and (max-width: 750px) {
-        font-size: 80%;
         justify-content: center;
         width: 100px;
     } 
