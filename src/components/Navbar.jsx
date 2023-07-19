@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/알딸딸로고.png";
 import HamburgerModal from "./HambergerModal";
+import { getUserInfoApi } from "../api/users";
+import { useQuery } from "react-query";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
-
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+  const { isLoading, error, data } = useQuery("userInfo", getUserInfoApi, {
+    onSuccess: (data) => {
+      localStorage.setItem("user", JSON.stringify({ name: data.data.nickname, islogin: data.data.flag }));
+    },
+  });
 
-  return (
+  const isLogin = data.data.flag;
+
+  // const nickName = data.data.nickname;
+  return isLoading ? (
+    <div></div>
+  ) : (
     <div>
       <NavBarContainer>
         <LogoContainer
@@ -32,7 +43,7 @@ const NavBar = () => {
           <NavContainer>
             <NavBtnContainer
               onClick={() => {
-                navigate("/mypage");
+                isLogin ? navigate("/mypage") : navigate("/login");
                 setShowModal(false);
               }}
             >
@@ -56,15 +67,18 @@ const NavBar = () => {
             </NavBtnContainer>
             <NavBtnContainer>유저들의 레시피</NavBtnContainer>
           </NavContainer>
-
-          <LoginBtn
-            onClick={() => {
-              navigate("/login");
-              setShowModal(false);
-            }}
-          >
-            로그인
-          </LoginBtn>
+          {data.data.flag === false ? (
+            <LoginBtn
+              onClick={() => {
+                navigate("/login");
+                setShowModal(false);
+              }}
+            >
+              로그인
+            </LoginBtn>
+          ) : (
+            <LoginBtn>{data.data.nickname}</LoginBtn>
+          )}
         </div>
       </NavBarContainer>
       {showModal && <HamburgerModal setShowModal={setShowModal} toggleModal={toggleModal} />}

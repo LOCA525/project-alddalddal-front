@@ -19,6 +19,12 @@ export const putNicknameApi = async (body) => {
   console.log(res);
   return res;
 };
+// 로그인 조회
+export const getUserInfoApi = async () => {
+  const res = await instance.get("/users/info");
+  console.log(res);
+  return res;
+};
 // 마이페이지 조회
 export const getMyPage = async () => {
   const res = await instance.get("/mypage");
@@ -46,10 +52,10 @@ export const getRecipeDetailPageApi = async (id) => {
 export const postLoungePageApi = async (body) => {
   const res = await instance.post("/lounge", body);
   return res;
-}
+};
 
 // 라운지페이지 조회
 export const getLoungePageApi = async () => {
   const res = await instance.get("/lounge");
   return res;
-}
+};
