@@ -11,7 +11,15 @@ import MainCardList from "../components/MainCardList";
 const MainPage = () => {
   const { isLoading, error, data } = useQuery("myPageData", getMainApi);
   // 메인페이지 아직 서버 개발안됨
-  console.log(data);
+  // console.log(data);
+  // useEffect(() => {
+  //   const accessToken = sessionStorage.getItem("accessToken");
+  //   if (accessToken === null) {
+  //     localStorage.setItem("isLogin", JSON.stringify({ isLogin: false }));
+  //   } else {
+  //     localStorage.setItem("isLogin", JSON.stringify({ isLogin: true }));
+  //   }
+  // }, []);
   return (
     // Hot 레시피카드는 6개까지만 띄울것 !
     // 라운지 게시글 컨테이너는 현재 max-height 700px 걸려있고 이상일시 스크롤 이벤트 걸려있음!.
@@ -22,11 +30,11 @@ const MainPage = () => {
         <ContentContainer>
           <PopularListContainer>
             <TitleLayout>🔥 Hot 레시피</TitleLayout>
-            <MainCardList data={data} />
+            {/* <CardList /> */}
           </PopularListContainer>
           <LoungeContainer>
             <TitleLayout>☕️ 라운지</TitleLayout>
-            <CommentList />
+            {/* <CommentList /> */}
           </LoungeContainer>
         </ContentContainer>
       </MainLayout>

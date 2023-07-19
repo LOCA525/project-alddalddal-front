@@ -4,13 +4,14 @@ import { styled } from "styled-components";
 
 const HamburgerModal = ({ toggleModal, setShowModal }) => {
   const navigate = useNavigate();
+  const isLogin = JSON.parse(localStorage.getItem("user")).islogin;
   return (
     <Modal>
       <ModalContent>
         <CloseButton onClick={toggleModal}>&times;</CloseButton>
         <ModalNavBtnContainer
           onClick={() => {
-            navigate("/mypage");
+            isLogin ? navigate("/mypage") : navigate("/login");
             setShowModal(false);
           }}
         >

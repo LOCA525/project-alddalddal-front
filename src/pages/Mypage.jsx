@@ -9,6 +9,7 @@ import { useQuery } from "react-query";
 
 function Mypage() {
   const { isLoading, error, data } = useQuery("myPageData", getMyPage);
+  console.log("마이페이지", data);
   return (
     <MainLayout>
       {isLoading ? (

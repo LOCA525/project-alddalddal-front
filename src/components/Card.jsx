@@ -11,12 +11,10 @@ const Card = ({ item }) => {
         navigate(`/recipe/detail/${item.recipeId}`);
       }}
     >
-      <CardImageContainer>
-        <img src={item.imageUrl} alt="d" />
-      </CardImageContainer>
+      <CardImageContainer image={item.imageUrl} />
       <CardContentContainer>
         <TitleContainer>{item.name}</TitleContainer>
-        <ContentContainer>{item?.explanation}</ContentContainer>
+        <ContentContainer>{item.explanation}</ContentContainer>
       </CardContentContainer>
     </CardContainer>
   );
@@ -36,6 +34,9 @@ const CardImageContainer = styled.div`
   height: 230px;
   border-radius: 20px;
   border: 1px solid gray;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(${(props) => props.image});
 `;
 
 const CardContentContainer = styled.div`
