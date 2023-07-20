@@ -19,7 +19,6 @@ JWT토큰 방식
 <img width="70%" align="center" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/6982b0ad-82fc-4252-baed-98d665c22c27.gif"/>
 <img width="70%" align="center" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/3f56ca80-c15c-4335-884f-f752c53c8e24.gif"/>
 
-![메인페이지 반응형](https://github.com/LOCA525/project-alddalddal-front/assets/98865366/3f56ca80-c15c-4335-884f-f752c53c8e24)
 
 ## 로그인/회원가입
 ![로그인기능](https://github.com/LOCA525/project-alddalddal-front/assets/98865366/e3dadb76-4122-4149-86d7-8f10dedadc0c)
