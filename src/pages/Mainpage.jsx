@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
-import Banner from "../components/Banner";
+import Banner from "../components/MainPage/Banner";
 import { MainLayout, TitleLayout } from "../styles/layouts";
 import { styled } from "styled-components";
-import Card from "../components/Card";
-import CardList from "../components/CardList";
-import CommentList from "../components/CommentList";
+import Card from "../components/RecipeListPage/Card";
+import CardList from "../components/RecipeListPage/CardList";
+import CommentList from "../components/LoungePage/CommentList";
 import { getMainApi } from "../api/users";
 import { useQuery } from "react-query";
-import MainCardList from "../components/MainCardList";
-import MainCommentList from "../components/MainCommentList";
+import MainCardList from "../components/MainPage/MainCardList";
+import MainCommentList from "../components/MainPage/MainCommentList";
 const MainPage = () => {
   const { isLoading, error, data } = useQuery("mainPageData", getMainApi);
 
   if (isLoading) return "Loading...";
+  console.log(error);
 
   return (
     // Hot 레시피카드는 6개까지만 띄울것 !

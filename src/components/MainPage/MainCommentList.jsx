@@ -1,13 +1,13 @@
-import React from 'react'
-import { styled } from 'styled-components';
-import MainCommentCard from './MainCommentCard';
+import React from "react";
+import { styled } from "styled-components";
+import MainCommentCard from "./MainCommentCard";
 
 function MainCommentList() {
   return (
     <CommentListContainer>
       <MainCommentCard />
     </CommentListContainer>
-  )
+  );
 }
 
 const CommentListContainer = styled.div`
@@ -20,4 +20,4 @@ const CommentListContainer = styled.div`
   overflow-y: scroll;
 `;
 
-export default MainCommentList
+export default MainCommentList;

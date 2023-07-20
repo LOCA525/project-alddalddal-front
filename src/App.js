@@ -1,8 +1,7 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import "./styles/font.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/Navbar/Navbar";
 import MainPage from "./pages/Mainpage";
 import RecipeListPage from "./pages/RecipeListPage";
 import LoungePage from "./pages/Loungepage";

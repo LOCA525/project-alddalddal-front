@@ -1,12 +1,14 @@
 import React from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { styled } from "styled-components";
-import { deleteZzimApi, postZzimApi } from "../api/users";
+import { deleteZzimApi, postZzimApi } from "../../api/users";
+import { useNavigate } from "react-router-dom";
 const ZzimBtn = ({ data }) => {
   const isLogin = JSON.parse(localStorage.getItem("user")).islogin;
   const isUserZzim = data.data.isUserZzim;
   const id = data.data.recipeId;
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const zzimMutate = useMutation(postZzimApi, {
     onSuccess: () => {
       queryClient.invalidateQueries("recipeDetailData");
@@ -40,7 +42,14 @@ const ZzimBtn = ({ data }) => {
         )
       ) : (
         // 로그인안한 상태의 찜버튼
-        <ZzimBtnContainer check={isUserZzim}>Pick !</ZzimBtnContainer>
+        <ZzimBtnContainer
+          check={isUserZzim}
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Pick !
+        </ZzimBtnContainer>
       )}
     </div>
   );

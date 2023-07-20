@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import { SelectedOption } from "./SelectOption";
 import { useDispatch, useSelector } from "react-redux";
-import { AddLoungeContent } from "../redux/modules/ProjectADD";
-import { postLoungePageApi } from "../api/users";
+import { AddLoungeContent } from "../../redux/modules/ProjectADD";
 import CommentModal from "./CommentModal";
 
 const CommentInput = () => {
-
   const dispatch = useDispatch();
 
-  const loungeContent = useSelector((state) => {return state.AddLoungeContent});
+  const loungeContent = useSelector((state) => {
+    return state.AddLoungeContent;
+  });
 
   const [comments, setComments] = useState({
     content: "",
@@ -22,28 +22,28 @@ const CommentInput = () => {
     const { value, name } = event.target;
     setComments({
       ...comments,
-      [name]: value
+      [name]: value,
     });
   };
 
   const onAddCommentBtnHandler = () => {
-    dispatch(AddLoungeContent({comments, selectedOption}))
+    dispatch(AddLoungeContent({ comments, selectedOption }));
     if (comments.content.length === 0) {
-      alert("내용을 입력해주세요.")
+      alert("내용을 입력해주세요.");
     } else {
       setCommentModal(true);
     }
   };
 
-  const [selectedOption, setSelectedOption] = useState('전체')
+  const [selectedOption, setSelectedOption] = useState("전체");
 
   const option = [
-    { value: 1, name: '전체' },
-    { value: 2, name: '보드카' },
-    { value: 3, name: '진' },
-    { value: 4, name: '럼' },
-    { value: 5, name: '위스키' },
-    { value: 6, name: '데킬라' }
+    { value: 1, name: "전체" },
+    { value: 2, name: "보드카" },
+    { value: 3, name: "진" },
+    { value: 4, name: "럼" },
+    { value: 5, name: "위스키" },
+    { value: 6, name: "데킬라" },
   ];
 
   const [option1, setOption1] = useState(false);
@@ -55,44 +55,42 @@ const CommentInput = () => {
 
   const clickBackground = () => {
     setOption1(false);
-  }
+  };
 
   return (
     <div>
       <InputContainer>
         <CommentTitleContainer>
-        {commentModal
-        ? <CommentModal
-            setCommentModal={setCommentModal}
-            loungeContent={loungeContent}
-            setComments={setComments}
-            setSelectedOption={setSelectedOption}
-          />
-          : null}
-            <CommentTitle>나의 의견을 남겨보아요!</CommentTitle>
-            <div onClick={clickBackground}>
-              <SelectBox>              
-                    <Select onClick={ClickSelect}>
-                      {selectedOption}<div>▼</div>
-                    </Select>
-                    {(option1 === true) && <SelectedOption
-                      option={option}
-                      setOption1={setOption1}
-                      setSelectedOption={setSelectedOption}
-                    />}
-              </SelectBox>
-            </div>
+          {commentModal ? (
+            <CommentModal
+              setCommentModal={setCommentModal}
+              loungeContent={loungeContent}
+              setComments={setComments}
+              setSelectedOption={setSelectedOption}
+            />
+          ) : null}
+          <CommentTitle>나의 의견을 남겨보아요!</CommentTitle>
+          <div onClick={clickBackground}>
+            <SelectBox>
+              <Select onClick={ClickSelect}>
+                {selectedOption}
+                <div>▼</div>
+              </Select>
+              {option1 === true && (
+                <SelectedOption option={option} setOption1={setOption1} setSelectedOption={setSelectedOption} />
+              )}
+            </SelectBox>
+          </div>
         </CommentTitleContainer>
         <CommentInputBox
           type="text"
           name="content"
           value={comments.content}
           placeholder="입력해주세요"
-          onChange={onChangeCommentHandler} />
+          onChange={onChangeCommentHandler}
+        />
         <AddBtnContainer>
-          <AddBtn
-            onClick={onAddCommentBtnHandler}
-          >입력</AddBtn>
+          <AddBtn onClick={onAddCommentBtnHandler}>입력</AddBtn>
         </AddBtnContainer>
       </InputContainer>
     </div>
@@ -133,7 +131,7 @@ const CommentInputBox = styled.input`
 
   &:focus-within {
     box-shadow: 0 0 0 1px #666666;
-    }
+  }
 `;
 
 const InputContainer = styled.div`
@@ -150,52 +148,50 @@ const AddBtnContainer = styled.div`
 `;
 
 const AddBtn = styled.button`
-    width: 100px;
-    height: 30px;
-    color: white;
-    font-weight: bolder;
-    background-color: #f79327;
-    border-radius: 8px;
-    margin: 15px 15px 0px 0px;
-
-    &:hover {
-        background-color: #ca6b34;
-        cursor: pointer;
-    };
-    &:active {
-        width: 101px;
-    };
+  width: 100px;
+  height: 30px;
+  color: white;
+  font-weight: bolder;
+  background-color: #f79327;
+  border-radius: 8px;
+  margin: 15px 15px 0px 0px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ca6b34;
+  }
+  &:active {
+    width: 101px;
+  }
 `;
 
 const SelectBox = styled.div`
-    display: flex;
-    width: 100%;
-    margin-top: 10px;
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
 `;
 
 const Select = styled.div`
-    width: 200px;
-    height: 40px;
-    border: 1px solid;
-    border-radius: 8px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 12px;
-    padding-right: 12px;
-    justify-content: space-between;
-    
-    &:hover {
-        background-color: #ca6b34;
-        cursor: pointer;
-    };
+  width: 200px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 8px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  justify-content: space-between;
 
-    @media screen and (max-width: 750px) {
-        font-size: 80%;
-        justify-content: center;
-        width: 100px;
-    } 
-    
+  &:hover {
+    background-color: #ca6b34;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 80%;
+    justify-content: center;
+    width: 100px;
+  }
 `;
 
 export default CommentInput;

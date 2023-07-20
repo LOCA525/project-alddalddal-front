@@ -1,6 +1,6 @@
 import React from "react";
 import { MainLayout } from "../styles/layouts";
-import CardList from "../components/CardList";
+import CardList from "../components/RecipeListPage/CardList";
 import { styled } from "styled-components";
 import { useQuery } from "react-query";
 import { getRecipePageApi } from "../api/users";

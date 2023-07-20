@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { styled } from "styled-components";
-import { getUserInfoApi, putNicknameApi } from "../api/users";
+import { getUserInfoApi, putNicknameApi } from "../../api/users";
 
 const ModifyModal = ({ setModifyModal }) => {
   const queryClient = useQueryClient();
   const mutation = useMutation(getUserInfoApi, {
     onSuccess: () => {
-        // queryClient.invalidateQueries(["userInfo"]);
+      // queryClient.invalidateQueries(["userInfo"]);
     },
     onError: (error) => {
       console.log(error);

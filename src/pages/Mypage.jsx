@@ -1,7 +1,7 @@
 import { MainLayout, TitleLayout } from "../styles/layouts";
 import { styled } from "styled-components";
-import Card from "../components/Card";
-import ModifyBtn from "../components/ModifyBtn";
+import Card from "../components/RecipeListPage/Card";
+import ModifyBtn from "../components/MyPage/ModifyBtn";
 import { getMyPage } from "../api/users";
 import { useQuery } from "react-query";
 
@@ -30,7 +30,7 @@ function Mypage() {
         <CardImpomationContainer>
           <CardListContainer>
             {data?.data.zzimRecipes.map((item) => {
-              return <Card item={item} key={item.recipeId} />
+              return <Card item={item} key={item.recipeId} />;
             })}
           </CardListContainer>
         </CardImpomationContainer>

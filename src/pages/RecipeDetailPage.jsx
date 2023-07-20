@@ -1,11 +1,11 @@
 import React from "react";
 import { MainLayout } from "../styles/layouts";
 import { styled } from "styled-components";
-import IngredientItem from "../components/IngredientItem";
+import IngredientItem from "../components/RecipeDetailPage/IngredientItem";
 import { useQuery } from "react-query";
 import { getRecipeDetailPageApi } from "../api/users";
 import { useParams } from "react-router-dom";
-import ZzimBtn from "../components/ZzimBtn";
+import ZzimBtn from "../components/RecipeDetailPage/ZzimBtn";
 
 const RecipeDetailPage = () => {
   const { id } = useParams();

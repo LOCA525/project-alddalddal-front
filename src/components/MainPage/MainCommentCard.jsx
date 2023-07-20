@@ -1,31 +1,30 @@
-import React from 'react'
-import { useQuery } from 'react-query';
-import { getLoungePageApi } from '../api/users';
-import { styled } from 'styled-components';
+import React from "react";
+import { useQuery } from "react-query";
+import { getLoungePageApi } from "../../api/users";
+import { styled } from "styled-components";
 
 function MainCommentCard() {
-
-    const { isLoading, error, data } = useQuery("loungeData", getLoungePageApi);
-
+  const { isLoading, error, data } = useQuery("loungeData", getLoungePageApi);
+  if (isLoading) return "Loading...";
   return (
     <CommentCardContainer>
       {data?.data.reverse().map((item) => {
         return (
           <div key={item.id}>
             <UserContainer>
-                <div>{item.nickname} 님의 의견</div>
-                <div>
-                    종류 ▽ <BaseText>{item.base}</BaseText>
-                </div>
+              <div>{item.nickname} 님의 의견</div>
+              <div>
+                종류 ▽ <BaseText>{item.base}</BaseText>
+              </div>
             </UserContainer>
             <ContentContainer>
-              <div>{item.content}</div>             
+              <div>{item.content}</div>
             </ContentContainer>
           </div>
         );
       })}
     </CommentCardContainer>
-  )
+  );
 }
 
 const CommentCardContainer = styled.div`
@@ -65,4 +64,4 @@ const BaseText = styled.div`
   font-weight: bolder;
 `;
 
-export default MainCommentCard
+export default MainCommentCard;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import logo from "../images/알딸딸로고.png";
+import logo from "../../images/알딸딸로고.png";
 import HamburgerModal from "./HambergerModal";
-import { getUserInfoApi } from "../api/users";
+import { getUserInfoApi } from "../../api/users";
 import { useQuery } from "react-query";
 import NavbarLogin from "./NavbarLogin";
 
@@ -20,9 +20,7 @@ const NavBar = () => {
   });
 
   if (isLoading) return "Loading...";
-  console.log("navbar", data)
 
-  // const nickName = data.data.nickname;
   return (
     <div>
       <NavBarContainer>
