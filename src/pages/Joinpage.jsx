@@ -60,7 +60,7 @@ function Joinpage() {
           ></EmailInput>
           <InputTitleContainer>🔸 비밀번호</InputTitleContainer>
           <EmailInput
-            type="text"
+            type="password"
             value={password}
             name="password"
             placeholder="당신의 새로운 비밀번호를 입력해주세요."
