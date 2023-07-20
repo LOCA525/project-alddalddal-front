@@ -15,9 +15,9 @@ JWT토큰 방식
 <img width="296" alt="image" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/d54ee144-90fe-4348-82fb-a6e6f20ae875">
 
 ## 반응형 UI<br>
-<img width="70%" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/17dbfc79-47cf-4e19-bc6b-361f7b0944db.gif"/>
-<img width="70%" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/3503953e-4a2d-4d75-8ad0-7723462024bd"/>
-<img width="70%" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/6982b0ad-82fc-4252-baed-98d665c22c27"/>
+<img width="70% "align="center" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/17dbfc79-47cf-4e19-bc6b-361f7b0944db.gif"/>
+<img width="70%" align="center" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/3503953e-4a2d-4d75-8ad0-7723462024bd.gif"/>
+<img width="70%" align="center" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/6982b0ad-82fc-4252-baed-98d665c22c27.gif"/>
 
 ## 로그인/회원가입
 ![로그인기능](https://github.com/LOCA525/project-alddalddal-front/assets/98865366/e3dadb76-4122-4149-86d7-8f10dedadc0c)
