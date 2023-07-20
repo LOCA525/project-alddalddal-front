@@ -1,6 +1,6 @@
 FE 2명, BE 3명,
 
-사용한 tool
+사용한 tool<br>
 react , styled-components, react-query, redux-toolkit, axios, 
 
 폴더구조
