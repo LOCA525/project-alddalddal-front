@@ -5,9 +5,17 @@ FE 2명, BE 3명,
 <a>https://43.201.127.107:8080/mypage</a>
 
 ## 사용한 tool<br>
-react , styled-components, react-query, redux-toolkit, axios, 
+react , styled-components, react-query, redux-toolkit, axios, <br>
+JWT토큰 방식
 
 ## 폴더구조<br>
 페이지단위로 컴포넌트 분리<br>
 <img width="296" alt="image" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/d54ee144-90fe-4348-82fb-a6e6f20ae875">
 
+## 반응형 UI<br>
+<div>
+  <span>![메인페이지 반응형](https://github.com/LOCA525/project-alddalddal-front/assets/98865366/dbf89784-27a3-42a7-834c-7152e44df463)
+</span>
+  <span>![상세페이지 반응형](https://github.com/LOCA525/project-alddalddal-front/assets/98865366/49eb8619-ce52-4c5e-85df-ba51697d449c)</span>
+  <span>![Uploading 칵테일,라운지반응형.gif…]()</span>
+</div>
