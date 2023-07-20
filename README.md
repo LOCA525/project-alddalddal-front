@@ -13,8 +13,4 @@ JWT토큰 방식
 <img width="296" alt="image" src="https://github.com/LOCA525/project-alddalddal-front/assets/98865366/d54ee144-90fe-4348-82fb-a6e6f20ae875">
 
 ## 반응형 UI<br>
-<div>
-  (https://github.com/LOCA525/project-alddalddal-front/assets/98865366/dbf89784-27a3-42a7-834c-7152e44df463)
- (https://github.com/LOCA525/project-alddalddal-front/assets/98865366/8581382f-12ac-4b8a-a37d-9e036d4290e3)
-(https://github.com/LOCA525/project-alddalddal-front/assets/98865366/49eb8619-ce52-4c5e-85df-ba51697d449c)
-</div>
+![메인페이지 반응형](https://github.com/LOCA525/project-alddalddal-front/assets/98865366/17dbfc79-47cf-4e19-bc6b-361f7b0944db)
