@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { styled } from "styled-components";
-import { putNicknameApi } from "../api/users";
+import { getUserInfoApi, putNicknameApi } from "../api/users";
 
 const ModifyModal = ({ setModifyModal }) => {
   const queryClient = useQueryClient();
-  const mutation = useMutation(putNicknameApi, {
+  const mutation = useMutation(getUserInfoApi, {
     onSuccess: () => {
-      //   queryClient.invalidateQueries("");
+        // queryClient.invalidateQueries(["userInfo"]);
     },
     onError: (error) => {
       console.log(error);
@@ -25,7 +25,17 @@ const ModifyModal = ({ setModifyModal }) => {
     });
   };
 
-  const onClickNewNickNameBtn = () => {
+  const onClickNewNickNameBtn = async () => {
+    try {
+      const res = await putNicknameApi(newNickName);
+      if (res.status === 200) {
+        console.log("res", res);
+        queryClient.invalidateQueries(["myPageData"]);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(newNickName);
     mutation.mutate(newNickName);
     alert(`닉네임이 ${newNickName.nickname}로 변경되었습니다!`);
     setModifyModal(false);

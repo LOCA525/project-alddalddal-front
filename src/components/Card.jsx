@@ -5,6 +5,7 @@ import { postSignUpApi } from "../api/users";
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
+  console.log(item)
   return (
     <CardContainer
       onClick={() => {

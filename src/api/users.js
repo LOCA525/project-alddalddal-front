@@ -46,6 +46,7 @@ export const getRecipePageApi = async () => {
 export const getRecipeDetailPageApi = async (id) => {
   const res = await instance.get(`recipes/${id}`);
   return res;
+
 };
 
 // 라운지페이지 작성

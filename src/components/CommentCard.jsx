@@ -36,7 +36,7 @@ const CommentCard = () => {
     <CommentCardContainer>
       {data?.data.reverse().map((item) => {
         return (
-          <div key={item.id}>
+          <CommentCardWrapper key={item.id}>
             <UserContainer>
               {
               (item.nickname === localData.name)
@@ -56,10 +56,9 @@ const CommentCard = () => {
                     onRemoveBtnHandler(item.id)
                     }}>삭제</RemoveBtn>
                 </div>
-              }
-              
+              }              
             </ContentContainer>
-          </div>
+          </CommentCardWrapper>
         );
       })}
     </CommentCardContainer>
@@ -70,6 +69,11 @@ const CommentCardContainer = styled.div`
   width: 100%;
   margin-bottom: 10px;
 `;
+
+const CommentCardWrapper = styled.div`
+  margin-bottom: 15px;
+`;
+
 const UserContainer = styled.div`
   width: 100%;
   border-top: 1px solid #ced3d7;

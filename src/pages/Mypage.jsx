@@ -27,13 +27,13 @@ function Mypage() {
         <MypageTitleContainer>
           <TitleLayout>나의 찜 목록</TitleLayout>
         </MypageTitleContainer>
-        <ImpomationContainer>
+        <CardImpomationContainer>
           <CardListContainer>
-            {data?.data.zzimRecipes.map(() => {
-              return <Card />;
+            {data?.data.zzimRecipes.map((item) => {
+              return <Card item={item} key={item.recipeId} />
             })}
           </CardListContainer>
-        </ImpomationContainer>
+        </CardImpomationContainer>
         {/* <MypageTitleContainer>
           <TitleLayout>내가 남긴 메세지</TitleLayout>
         </MypageTitleContainer>
@@ -65,6 +65,19 @@ const MypageTitleContainer = styled.div`
 const ImpomationContainer = styled.div`
   width: 1000px;
   margin: 0px auto 50px auto;
+  border-radius: 10px;
+  max-height: 600px;
+  justify-content: center;
+  box-shadow: rgba(150, 150, 150, 0.45) 2px 2px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const CardImpomationContainer = styled.div`
+  width: 1000px;
+  margin: 0px auto 50px auto;
+  padding-top: 20px;
   border-radius: 10px;
   max-height: 600px;
   justify-content: center;
@@ -125,7 +138,6 @@ const CardListContainer = styled.div`
   justify-content: center;
   align-items: center;
   align-items: stretch;
-  align-content: center;
   overflow-y: scroll;
 `;
 
