@@ -1,10 +1,6 @@
-import React, { useEffect } from "react";
 import Banner from "../components/MainPage/Banner";
 import { MainLayout, TitleLayout } from "../styles/layouts";
 import { styled } from "styled-components";
-import Card from "../components/RecipeListPage/Card";
-import CardList from "../components/RecipeListPage/CardList";
-import CommentList from "../components/LoungePage/CommentList";
 import { getMainApi } from "../api/users";
 import { useQuery } from "react-query";
 import MainCardList from "../components/MainPage/MainCardList";
