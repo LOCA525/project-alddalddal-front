@@ -65,8 +65,8 @@ const ModifyModal = ({ setModifyModal }) => {
 };
 
 const ModalContainer = styled.div`
-  width: 800px;
-  height: 600px;
+  width: 45%;
+  height: 70%;
   padding: 20px;
   background: white;
   display: flex;
@@ -89,6 +89,7 @@ const BackgoroundModal = styled.div`
 `;
 
 const ModalWrapper = styled.div`
+  width: 100%;
   border: 1px solid #f79327;
   border-radius: 10px;
   display: flex;
@@ -137,7 +138,7 @@ const ModifyInput = styled.input`
 const ModifyBtn = styled.button`
   margin: auto;
   height: 40px;
-  width: 300px;
+  width: 50%;
   border-radius: 30px;
   background-color: #f79327;
   color: white;

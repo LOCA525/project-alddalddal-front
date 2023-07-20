@@ -34,23 +34,13 @@ function Mypage() {
             })}
           </CardListContainer>
         </CardImpomationContainer>
-        {/* <MypageTitleContainer>
-          <TitleLayout>내가 남긴 메세지</TitleLayout>
-        </MypageTitleContainer>
-        <ImpomationContainer>
-          <CommentListContainer>
-            <CommentCard />
-            <CommentCard />
-            <CommentCard />
-            <CommentCard />
-          </CommentListContainer>
-        </ImpomationContainer> */}
       </MypageContainer>
     </MainLayout>
   );
 }
 
 const MypageContainer = styled.div`
+  width: 100%;
   display: flex;
   display: grid;
   margin-top: 20px;
@@ -58,12 +48,12 @@ const MypageContainer = styled.div`
 
 const MypageTitleContainer = styled.div`
   display: flex;
-  width: 1000px;
+  width: 65%;
   margin: 80px auto 0px auto;
 `;
 
 const ImpomationContainer = styled.div`
-  width: 1000px;
+  width: 65%;
   margin: 0px auto 50px auto;
   border-radius: 10px;
   max-height: 600px;
@@ -75,7 +65,7 @@ const ImpomationContainer = styled.div`
 `;
 
 const CardImpomationContainer = styled.div`
-  width: 1000px;
+  width: 65%;
   margin: 0px auto 50px auto;
   padding-top: 20px;
   border-radius: 10px;
@@ -88,7 +78,7 @@ const CardImpomationContainer = styled.div`
 `;
 
 const MyprofilContainer = styled.div`
-  width: 1000px;
+  width: 100%;
   height: 60px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -102,7 +92,7 @@ const MyprofilContainer = styled.div`
 `;
 
 const EmailTextContainer = styled.div`
-  width: 960px;
+  width: 95%;
   height: 60px;
   margin: 0px auto;
   border-bottom: 1px solid rgba(194, 194, 194, 0.45);
@@ -112,22 +102,12 @@ const EmailTextContainer = styled.div`
 `;
 
 const NickNameTextContainer = styled.div`
-  width: 960px;
+  width: 95%;
   height: 60px;
   margin: 0px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-const CommentListContainer = styled.div`
-  width: 100%;
-  padding: 10px 0 10px 0;
-  border: 2px solid #f79327;
-  border-radius: 10px;
-  padding: 16px;
-  max-height: 700px;
-  overflow-y: scroll;
 `;
 
 const CardListContainer = styled.div`
