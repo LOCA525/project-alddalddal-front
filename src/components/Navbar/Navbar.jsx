@@ -55,7 +55,11 @@ const NavBar = () => {
             >
               라운지
             </NavBtnContainer>
-            <NavBtnContainer>유저들의 레시피</NavBtnContainer>
+            <NavBtnContainer
+              onClick={() => {
+                alert("아직 구현 중이에요! Comming soon!!!")
+              }}
+            >유저들의 레시피</NavBtnContainer>
 
             <NavBtnContainer
               onClick={() => {

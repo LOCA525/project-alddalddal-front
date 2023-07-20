@@ -8,6 +8,8 @@ import CommentModal from "./CommentModal";
 const CommentInput = () => {
   const dispatch = useDispatch();
 
+  const localData = JSON.parse(localStorage.user);
+
   const loungeContent = useSelector((state) => {
     return state.AddLoungeContent;
   });
@@ -28,11 +30,17 @@ const CommentInput = () => {
 
   const onAddCommentBtnHandler = () => {
     dispatch(AddLoungeContent({ comments, selectedOption }));
-    if (comments.content.length === 0) {
-      alert("내용을 입력해주세요.");
+    console.log(localData)
+    if (localData.name === "No User") {
+      alert("로그인 상태가 아닙니다. 로그인을 완료 후 업로드해주세요!")
     } else {
-      setCommentModal(true);
+      if (localData !== "No User" && comments.content.length === 0) {
+        alert("내용을 입력해주세요.");
+      } else {
+        setCommentModal(true);
+      }
     }
+    
   };
 
   const [selectedOption, setSelectedOption] = useState("전체");
