@@ -61,8 +61,8 @@ export const deleteLoungePageApi = async (id) => {
 };
 
 // 찜하기
-export const postZzimApi = async (url, id) => {
-  const res = await instance.post(`/${url}/${id}`);
+export const postZzimApi = async (id) => {
+  const res = await instance.post(`/recipes/${id}`);
   return res;
 };
 

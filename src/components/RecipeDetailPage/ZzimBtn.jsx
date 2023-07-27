@@ -22,8 +22,7 @@ const ZzimBtn = ({ data }) => {
     },
   });
   const handleZzimPost = () => {
-    const url = "recipes";
-    zzimMutate.mutate(url, id);
+    zzimMutate.mutate(id);
   };
   const handleZzimDelete = () => {
     deleteZzimMutate.mutate(id);
