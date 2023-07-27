@@ -84,11 +84,11 @@ function Joinpage() {
 }
 
 const JoinContainer = styled.div`
-  width: 700px;
+  width: 45%;
   margin: 50px auto 50px auto;
   padding: 50px;
   border-radius: 10px;
-  height: 750px;
+  height: 95%;
   box-shadow: rgba(150, 150, 150, 0.45) 2px 2px 10px;
   display: flex;
   flex-direction: column;
@@ -108,7 +108,9 @@ const JoinHeaderContainer = styled.div`
 `;
 
 const JoinContentWrapper = styled.div`
-  margin-top: 70px;
+  width: 80%;
+  height: 100%;
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,11 +127,10 @@ const EmailInput = styled.input`
   border: 1px solid #333333;
   border-radius: 10px;
   height: 40px;
-  width: 500px;
-  outline: none;
+  width: 100%;
   padding-left: 12px;
   padding-right: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 10%;
 
   &:focus-within {
     box-shadow: 0 0 0 1px #000;
@@ -137,7 +138,7 @@ const EmailInput = styled.input`
 `;
 
 const JoinBtnWrapper = styled.div`
-  width: 500px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 `;
@@ -145,13 +146,20 @@ const JoinBtnWrapper = styled.div`
 const LoginLinkBtn = styled.button`
   margin: 30px auto 50px auto;
   height: 40px;
-  width: 200px;
+  width: 180px;
   border-radius: 30px;
   border: 1px solid #f79327;
   color: #f79327;
   font-weight: bolder;
   font-size: 110%;
   box-shadow: rgba(187, 187, 187, 0.45) 0.5px 0.5px 10px;
+
+  @media screen and (max-width: 1100px) {
+    font-size: 50%;
+    height: 30px;
+    width: 80px;
+    margin: 10px auto 30px auto;
+  }
 
   &:hover {
     border: 2px solid #f79327;
@@ -165,13 +173,20 @@ const LoginLinkBtn = styled.button`
 const JoinBtn = styled.button`
   margin: 30px auto 50px auto;
   height: 40px;
-  width: 200px;
+  width: 180px;
   border-radius: 30px;
   background-color: #f79327;
   color: white;
   font-weight: bolder;
   font-size: 110%;
   box-shadow: rgba(150, 150, 150, 0.45) 1px 1px 10px;
+
+  @media screen and (max-width: 1100px) {
+    font-size: 50%;
+    height: 30px;
+    width: 80px;
+    margin: 10px auto 30px auto;
+  }
 
   &:hover {
     background-color: #ca6b34;
